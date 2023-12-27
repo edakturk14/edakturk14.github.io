@@ -1,7 +1,7 @@
 body {
   line-height: 1.6;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
   display: flex;
   justify-content: center;
 }
@@ -14,7 +14,8 @@ body {
 .container h1, .container h2 {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 16px;
+  font-style: italic;
 }
 
 .header h1, .header h2, .header h3 {
@@ -23,19 +24,21 @@ body {
 }
 
 .header h1 {
-  color: rgb(246, 66, 156);
-  font-size: 22px;
+  color: rgb(226, 20, 168);
+  font-size: 32px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .header h2 {
   font-style: italic;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .header h3 {
-  font-size: 14px;
+  font-size: 16px;
+  font-style: italic;
 }
 
 a:link, a:visited {
-  color: rgb(213, 60, 169);
+  color: rgb(205, 25, 154);
 }
