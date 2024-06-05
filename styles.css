@@ -27,7 +27,7 @@ body {
 }
 
 .header h1 {
-  color: rgb(226, 20, 168);
+  color: rgb(226, 20, 130);
   font-size: 32px;
 }
 
@@ -43,5 +43,5 @@ body {
 
 a:link,
 a:visited {
-  color: rgb(205, 25, 154);
+  color: rgb(226, 20, 130);
 }
