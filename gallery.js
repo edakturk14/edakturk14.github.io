@@ -133,7 +133,50 @@ function updateActiveItem() {
   document.querySelectorAll('.subnav a').forEach(a => a.classList.toggle('active',a.dataset.item === id));
 }
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const menuAnimations = new WeakMap();
+let pageAnimation;
+
+function setMenuExpanded(button, expanded) {
+  if ((button.getAttribute('aria-expanded') === 'true') === expanded) return;
+  const list = document.getElementById(button.getAttribute('aria-controls'));
+  const hidden = list.hidden;
+  const style = getComputedStyle(list);
+  const start = {
+    height: hidden ? '0px' : `${list.getBoundingClientRect().height}px`,
+    marginTop: hidden ? '0px' : style.marginTop,
+    marginBottom: hidden ? '0px' : style.marginBottom,
+    opacity: hidden ? 0 : style.opacity
+  };
+  menuAnimations.get(list)?.cancel();
+  button.setAttribute('aria-expanded',String(expanded));
+  list.inert = !expanded;
+  list.hidden = false;
+  list.style.overflow = '';
+  if (reducedMotion.matches) {
+    list.hidden = !expanded;
+    return;
+  }
+  const natural = getComputedStyle(list);
+  const end = expanded ? {
+    height: `${list.getBoundingClientRect().height}px`,
+    marginTop: natural.marginTop,
+    marginBottom: natural.marginBottom,
+    opacity: 1
+  } : {height:'0px',marginTop:'0px',marginBottom:'0px',opacity:0};
+  list.style.overflow = 'hidden';
+  const animation = list.animate([start,end],{duration:220,easing:'cubic-bezier(.22,1,.36,1)'});
+  menuAnimations.set(list,animation);
+  animation.onfinish = () => {
+    list.hidden = !expanded;
+    list.style.overflow = '';
+    menuAnimations.delete(list);
+  };
+}
+
 function renderSection(section) {
+  const changingPage = Boolean(currentSection);
+  pageAnimation?.cancel();
   currentSection = section;
   visibleItems = sectionItems(section);
   $('#home-intro').hidden = section !== 'home';
@@ -144,8 +187,7 @@ function renderSection(section) {
   });
   document.querySelectorAll('.nav-toggle').forEach(button => {
     if (button.dataset.section !== section) {
-      button.setAttribute('aria-expanded','false');
-      document.getElementById(button.getAttribute('aria-controls')).hidden = true;
+      setMenuExpanded(button,false);
     }
   });
   gallery.querySelectorAll('.card-inner').forEach(el => resizeObserver.unobserve(el));
@@ -155,6 +197,10 @@ function renderSection(section) {
   $('#item-count').textContent = String(visibleItems.length).padStart(2,'0');
   $('#gallery-status').textContent = section === 'home' ? 'About Eda' : `${sections[section]}, ${visibleItems.length} items`;
   document.title = section === 'home' ? 'Eda Akturk' : `${sections[section]} — Eda Akturk`;
+  if (changingPage && !reducedMotion.matches) {
+    const content = section === 'home' ? $('#home-intro') : $('#portfolio');
+    pageAnimation = content.animate([{opacity:.45},{opacity:1}],{duration:160,easing:'ease-out'});
+  }
   layout();
 }
 
@@ -186,16 +232,14 @@ document.querySelectorAll('.nav-row .nav-link').forEach(link => {
   link.addEventListener('click',event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const button = link.parentElement.querySelector('.nav-toggle');
-    button.setAttribute('aria-expanded','true');
-    document.getElementById(button.getAttribute('aria-controls')).hidden = false;
+    setMenuExpanded(button,true);
   });
 });
 
 document.querySelectorAll('.nav-toggle').forEach(button => {
   button.addEventListener('click',() => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded',String(!expanded));
-    document.getElementById(button.getAttribute('aria-controls')).hidden = expanded;
+    setMenuExpanded(button,!expanded);
   });
 });
 window.addEventListener('hashchange',route);
