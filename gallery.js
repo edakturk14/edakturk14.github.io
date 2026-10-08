@@ -95,7 +95,7 @@ function createCard(item,index) {
   const inner = document.createElement('div'); inner.className = 'card-inner';
   const visual = media(item,index);
   const description = document.createElement('p'); description.className = 'card-description'; description.textContent = item.description;
-  const hasDisclosure = item.section !== 'other-work' && Boolean(visual);
+  const hasDisclosure = !mobileViewport.matches && item.section !== 'other-work' && Boolean(visual);
   if (hasDisclosure) {
     const details = document.createElement('details'); details.dataset.item = item.id;
     const summary = document.createElement('summary');
@@ -134,6 +134,41 @@ function updateActiveItem() {
 }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mobileViewport = window.matchMedia('(max-width: 700px)');
+const mobileMenu = $('.mobile-menu-toggle');
+const socialFooter = $('#site-socials');
+function placeSocialFooter() {
+  (mobileViewport.matches ? document.body : $('.sidebar')).append(socialFooter);
+}
+function setMobileMenu(open) {
+  $('.sidebar').dataset.menuOpen = String(open);
+  mobileMenu.setAttribute('aria-expanded',String(open));
+  mobileMenu.setAttribute('aria-label',open ? 'Close menu' : 'Open menu');
+  mobileMenu.querySelector('path').setAttribute('d',open ? 'm5 5 10 10M5 15 15 5' : 'M3 7h14M3 13h14');
+}
+mobileMenu.addEventListener('click',() => setMobileMenu(mobileMenu.getAttribute('aria-expanded') !== 'true'));
+document.addEventListener('keydown',event => {
+  if (event.key === 'Escape' && mobileViewport.matches && mobileMenu.getAttribute('aria-expanded') === 'true') {
+    setMobileMenu(false);
+    mobileMenu.focus();
+  }
+});
+mobileViewport.addEventListener('change',() => {
+  setMobileMenu(false);
+  placeSocialFooter();
+  if (!mobileViewport.matches && document.activeElement === mobileMenu) $('.name').focus();
+  if (currentSection) {
+    renderSection(currentSection);
+    route();
+  }
+});
+document.querySelectorAll('.nav-link, .name').forEach(link => {
+  link.addEventListener('click',event => {
+    if (!mobileViewport.matches || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    setMobileMenu(false);
+    $('#main').focus({preventScroll:true});
+  });
+});
 const menuAnimations = new WeakMap();
 let pageAnimation;
 
@@ -205,6 +240,7 @@ function renderSection(section) {
 }
 
 function route() {
+  if (mobileViewport.matches) setMobileMenu(false);
   let [section,id] = location.hash.slice(1).split('/');
   if (section === 'main') return; // Let the skip link move keyboard focus to main.
   if (section === 'work') section = 'writing';
@@ -230,7 +266,7 @@ for (const section of ['writing','talks','other-work']) {
 
 document.querySelectorAll('.nav-row .nav-link').forEach(link => {
   link.addEventListener('click',event => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (mobileViewport.matches || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const button = link.parentElement.querySelector('.nav-toggle');
     setMenuExpanded(button,true);
   });
@@ -244,4 +280,5 @@ document.querySelectorAll('.nav-toggle').forEach(button => {
 });
 window.addEventListener('hashchange',route);
 document.fonts.ready.then(layout);
+placeSocialFooter();
 route();
