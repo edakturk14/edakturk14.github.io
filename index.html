@@ -12,17 +12,18 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@edatweets_" />
-  <link rel="stylesheet" href="styles.css?v=20261008-10" />
+  <link rel="stylesheet" href="styles.css?v=20261008-13" />
   <link rel="icon" href="favicon.ico" sizes="any" />
-  <script src="gallery.js?v=20261008-19" defer></script>
+  <script src="gallery.js?v=20261008-22" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="sidebar" aria-label="About Eda and navigation">
     <header class="identity">
       <a class="name" href="#home">Eda Akturk<span class="name-dot">.</span></a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open menu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h14M3 13h14"/></svg></button>
     </header>
-    <nav aria-label="Main navigation" class="navigation">
+    <nav aria-label="Main navigation" class="navigation" id="site-navigation">
       <a class="nav-link" href="#home" data-section="home" aria-current="page">About Me</a>
       <div class="nav-group">
         <div class="nav-row">
@@ -47,7 +48,7 @@
       </div>
       <a class="nav-link" href="#events" data-section="events">Events</a>
     </nav>
-    <footer class="sidebar-footer">
+    <footer class="sidebar-footer" id="site-socials">
       <div class="socials">
         <a href="https://x.com/edatweets_" aria-label="Eda on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l8.2-9.5L.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L6.4 3.9H4.6L17.8 20Z"/></svg></a>
         <a href="https://www.linkedin.com/in/eda-akturk-a9624b105/" aria-label="Eda on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.7 2 2 2.67 2 3.5v17c0 .83.7 1.5 1.55 1.5h16.9c.86 0 1.55-.67 1.55-1.5v-17c0-.83-.69-1.5-1.55-1.5ZM8 19H5V9h3v10ZM6.5 7.7a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5ZM19 19h-3v-5c0-1.2-.02-2.75-1.68-2.75-1.68 0-1.94 1.31-1.94 2.66V19h-3V9h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V19H19Z"/></svg></a>
