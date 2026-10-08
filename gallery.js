@@ -23,7 +23,7 @@ const items = [
   {id:'cryptist',section:'events',title:'Cryptist, Istanbul',meta:'Istanbul · 2022',image:'assets/g-cryptist.jpg',alt:'Group photo at Cryptist in Istanbul',ratio:1.2,description:'The group at Cryptist in Istanbul, 2022.'},
   {id:'ctf',section:'events',title:'BuidlGuidl CTF at Devcon SEA',meta:'Devcon SEA · 2024',image:'assets/g-ctf.jpg',alt:'BuidlGuidl CTF crew at Devcon SEA',ratio:1.05,description:'With the BuidlGuidl CTF crew at Devcon SEA, 2024.'},
   {id:'volunteers',section:'events',title:'The ETHGünü crew',meta:'Istanbul · 2023',image:'assets/g-team.jpg',alt:'ETHGünü volunteers together on stage',ratio:1.25,description:'ETHGünü volunteers on stage in Istanbul, 2023.'},
-  {id:'ethgunu-stage',section:'events',title:'On stage at ETHGünü',meta:'Istanbul · 2023',image:'assets/talk-ethgunu.jpg',alt:'Eda presenting at ETHGünü',ratio:.9,description:'Presenting at ETHGünü in Istanbul, 2023.'},
+  {id:'ethgunu-stage',section:'events',title:'ETHGünü',meta:'Istanbul · 2023',image:'assets/talk-ethgunu.jpg',alt:'Eda presenting at ETHGünü',ratio:.9,description:'Presenting at ETHGünü in Istanbul, 2023.'},
   {id:'fireside',section:'events',title:'A conversation with Aya Miyaguchi',meta:'ETHGünü, Istanbul · 2023',image:'assets/g-fireside.jpg',alt:'Eda hosting a fireside chat with Aya Miyaguchi',ratio:1.2,description:'Hosting a fireside chat with Aya Miyaguchi at ETHGünü, 2023.',links:[['Watch the conversation','https://streameth.org/watch/65b8f8cea5b2d09b88ec1055']]},
   {id:'cannes',section:'events',title:'ETHCC, Cannes',meta:'Cannes · 2025',image:'assets/talk-cannes.jpg',alt:'Eda speaking at ETHCC in Cannes',ratio:.8,description:'Speaking at ETHCC in Cannes, 2025.'}
 ];
@@ -141,9 +141,11 @@ function renderSection(section) {
   document.querySelectorAll('.nav-link').forEach(link => {
     const active = link.dataset.section === section;
     if (active) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current');
-    if (link.hasAttribute('aria-controls')) {
-      link.setAttribute('aria-expanded',String(active));
-      document.getElementById(link.getAttribute('aria-controls')).hidden = !active;
+  });
+  document.querySelectorAll('.nav-toggle').forEach(button => {
+    if (button.dataset.section !== section) {
+      button.setAttribute('aria-expanded','false');
+      document.getElementById(button.getAttribute('aria-controls')).hidden = true;
     }
   });
   gallery.querySelectorAll('.card-inner').forEach(el => resizeObserver.unobserve(el));
@@ -180,14 +182,20 @@ for (const section of ['writing','talks','other-work']) {
   }
 }
 
-document.querySelectorAll('.nav-link[aria-controls]').forEach(link => {
+document.querySelectorAll('.nav-row .nav-link').forEach(link => {
   link.addEventListener('click',event => {
-    if (!event.metaKey && !event.ctrlKey && link.dataset.section === currentSection && !location.hash.includes('/')) {
-      event.preventDefault();
-      const expanded = link.getAttribute('aria-expanded') === 'true';
-      link.setAttribute('aria-expanded',String(!expanded));
-      document.getElementById(link.getAttribute('aria-controls')).hidden = expanded;
-    }
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const button = link.parentElement.querySelector('.nav-toggle');
+    button.setAttribute('aria-expanded','true');
+    document.getElementById(button.getAttribute('aria-controls')).hidden = false;
+  });
+});
+
+document.querySelectorAll('.nav-toggle').forEach(button => {
+  button.addEventListener('click',() => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded',String(!expanded));
+    document.getElementById(button.getAttribute('aria-controls')).hidden = expanded;
   });
 });
 window.addEventListener('hashchange',route);
