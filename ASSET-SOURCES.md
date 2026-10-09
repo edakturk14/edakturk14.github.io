@@ -18,11 +18,22 @@ Additional images:
 - `assets/cover-hyperlane.png`: original cover from [A Developer’s Guide to Interoperability with Hyperlane](https://paragraph.com/@edatweets/a-developer-s-guide-to-interoperability-with-hyperlane).
 - `assets/cover-zk.png`: original cover from [Zero-Knowledge Proofs in Plain English](https://paragraph.com/@edatweets/zero-knowledge-proofs-in-plain-english).
 - `assets/cover-batches.png`: [BuidlGuidl’s social preview illustration](https://buidlguidl.com/thumbnail.png), linked from its batches page. This is project artwork, not an image of a particular cohort.
-- `assets/talk-web3.jpg`: the thumbnail of the [existing linked workshop recording](https://www.youtube.com/watch?v=zuJ-elbo88E).
-- `assets/talk-builder.jpg`: the thumbnail of the [existing linked Builder Show episode](https://www.youtube.com/watch?v=cPNrYKR9rtI).
+- `assets/talk-web3.jpg`: the thumbnail of the [first video in the Web2 to Web3 series](https://www.youtube.com/watch?v=zuJ-elbo88E).
+- `assets/builder-show-wide.png`: a landscape extension of The Builder Show artwork supplied by Eda, made with the built-in imagegen tool on October 9, 2026. The blue background extends at the sides to fit the same 16:9 card format as the other videos. Original: `assets/builder-show-hosts.png`.
 
-The grant and judging entries use original artwork from the organizations’ official websites. The Seoul card links directly to Eda’s workshop recording and uses its thumbnail. Gallery titles and source links are always visible, and additional article details expand inline. Images have no added padding or colored background, and CSS gently reduces saturation until hover or keyboard focus. The contact address was supplied by Eda for this redesign.
+The grant and judging entries use original artwork from the organizations’ official websites. The Seoul card links directly to Eda’s workshop recording and uses its thumbnail. Gallery titles and source links are always visible. Writing, talk, and event cards link directly to their destination; the podcast, video series, and Projects and Community cards have descriptions (on desktop). The podcast, zero-knowledge guide, Claude post, and intents guide also include links to Eda’s X announcements supplied on October 9, 2026. Images have no added padding or colored background, and CSS gently reduces saturation until hover or keyboard focus. The contact address was supplied by Eda for this redesign.
+
+The Work page groups longer videos (the podcast and series), talks and workshops (including demos), and projects and community work. The Web2 to Web3 card links to the full playlist supplied by Eda: https://www.youtube.com/watch?v=zuJ-elbo88E&list=PLJz1HruEnenAf80uOfDwBPqaliJkjKg69.
+
+- `assets/demo-hyperlane-mcp.jpg`: original video thumbnail from [Hyperlane’s MCP demo](https://x.com/hyperlane/status/1935063992827092996). [Original image](https://pbs.twimg.com/amplify_video_thumb/1935063841706315776/img/rGzSohVWVnZ4x-As.jpg).
+- `assets/demo-onchainkit.jpg`: original video thumbnail from [Eda’s Scaffold-ETH 2 and OnchainKit demo](https://x.com/edatweets_/status/1823003723548762597). [Original image](https://pbs.twimg.com/ext_tw_video_thumb/1823002994163732480/pu/img/uzQuMZHpWvRMGUjT.jpg).
 
 ## Local preview
 
 Run `npm run dev` (requires Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with no build step or external runtime dependencies. No remote changes are needed to preview it.
+
+## Builder Show image edit
+
+Mode: built-in imagegen. Saved output: `assets/builder-show-wide.png`.
+
+Prompt: Edit target: the supplied square Builder Show artwork. Create a 16:9 landscape website thumbnail by extending ONLY the left and right sides with the exact same flat periwinkle blue background. Keep the original square artwork centered at full canvas height, completely visible and unchanged: preserve both people's faces, hair, bodies, poses, clothing, the BuidlGuidl logo, the exact text THE BUILDER SHOW, and the existing illustrations. Do not crop the original at all. Do not redraw, beautify, or alter either face. The added side areas should be plain matching blue, no new objects or text. Output a 16:9 landscape image.
