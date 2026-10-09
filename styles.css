@@ -36,10 +36,14 @@ main {
 .home-intro h1 { font-size: 32px; font-weight: 400; line-height: 1.4; letter-spacing: -.9px; margin: 0 0 35px; }
 .bio { max-width: 590px; font-size: 15px; line-height: 1.85; color: var(--muted); }
 .bio p { margin: 0 0 20px; }
-.bio a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 4px; }
-.bio a:hover { text-decoration-color: var(--ink); }
-.gallery-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.bio a, .writing-blogs a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 4px; }
+.bio a:hover, .writing-blogs a:hover { text-decoration-color: var(--ink); }
+.gallery-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.gallery-heading-main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; min-width: 0; }
 .gallery-heading h1 { margin: 0; }
+.writing-blogs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; font-size: 11px; line-height: 1.85; color: var(--muted); }
+.heading-divider { width: 40px; height: 12px; align-self: center; flex: 0 0 40px; }
+.heading-divider path { stroke: var(--accent-line); stroke-width: 1; }
 #item-count { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
 .gallery, .work-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px 25px; align-items: start; }
 .gallery[data-section=work] { display: block; }
@@ -53,14 +57,15 @@ main {
 .work-group[data-group=community] .card-visual { aspect-ratio: 1.6; }
 .card img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.55); transition: filter .35s, transform .45s; }
 .card:hover img, .card:focus-within img { filter: saturate(.95); transform: scale(1.015); }
+#card-batches img { transform: scale(1.16); }
+#card-batches:hover img, #card-batches:focus-within img { transform: scale(1.175); }
 .card-main-link { display: block; }
 .card-main-link:hover :is(h2,h3), .card-main-link:focus-visible :is(h2,h3) { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .card-caption { position: relative; padding: 15px 0 0; }
 .card-caption :is(h2,h3) { margin: 0; font-size: 14px; font-weight: 400; line-height: 1.5; letter-spacing: -.1px; }
 .card-meta { margin: 7px 0 0; font-size: 10px; line-height: 1.6; color: var(--muted); }
 .card-description { margin: 15px 0 0; font-size: 12px; line-height: 1.85; color: var(--muted); }
-.card-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-.gallery[data-section=writing] .card-links, .work-group:not([data-group=community]) .card-links { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; }
+.card-links { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
 .card-links:not(:empty) { margin-top: 13px; }
 .external-link { display: inline-flex; gap: 12px; align-items: baseline; font-size: 11px; padding: 3px 0; border-bottom: 1px solid var(--line); }
 .external-link:hover { border-color: var(--ink); }
@@ -101,12 +106,13 @@ main {
   .bio { font-size: 14px; }
   .eyebrow { margin-bottom: 18px; }
   .gallery-heading { margin-bottom: 18px; }
+  .heading-divider { display: none; }
   .gallery, .work-grid { gap: 30px 18px; }
   .gallery[data-section=events] { gap: 16px; }
   .card-caption { padding-top: 12px; }
   .card-caption :is(h2,h3) { font-size: 12px; }
   .card-meta { font-size: 9px; }
-  .card-description { display: none; }
+  .card-description { font-size: 13px; }
   .external-link { font-size: 11px; }
 }
 @media(max-width:480px) {
