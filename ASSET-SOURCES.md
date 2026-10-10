@@ -43,3 +43,9 @@ Prompt: Edit target: the supplied square Builder Show artwork. Create a 16:9 lan
 The Writing page has compact links to the current Substack and earlier Paragraph and Hashnode blogs. The About Me “writing online since 2021” note is supported by [My Web3 Journey: Day 50 of #100daysofWeb3](https://eda.hashnode.dev/my-web3-journey-day-50-of-100daysofweb3), whose page displays November 20, 2021. JEV’s card shows 2026, matching its existing publication date in the content data.
 
 - `assets/100-days-web3.png`: My Web3 Journey: Day 100 of #100daysofWeb3 cover supplied directly by Eda on October 9, 2026, replacing the portrait on the challenge card.
+
+- `assets/cover-defi-gho.png`: original cover from [A Developer’s Intro to DeFi & Building w/GHO](https://paragraph.com/@edatweets/a-developer-s-intro-to-defi-building-w-gho). [Original image](https://storage.googleapis.com/papyrus_images/a693f15542b3e786e81c9d2c4242b9cfd4b8f2314f182205e7fd5cc03083150a.png). The article metadata gives a publication date of January 26, 2024.
+
+- `assets/fuel-dapp-toolkit.jpg`: original screenshot from [Eda’s Fuel toolkit announcement](https://x.com/edatweets_/status/1645468100874076172). [Original image](https://pbs.twimg.com/media/FtXf5u3WcAAyy-l.jpg?name=orig). The [repository](https://github.com/edakturk14/fuel-dapp-template) provides the linked video demo and documents the toolkit features. Eda’s March 5 and April 10, 2023 posts credit the collaboration with Carlos.
+
+- `assets/bg-shipping-log-36.webp`: original thumbnail from [BG Shipping Log #36](https://buidlguidl.substack.com/p/bg-shipping-log-36). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/0fd6c659-cce0-41d4-83be-4d208f71e778_460x241.webp).
