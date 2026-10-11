@@ -2,7 +2,8 @@
   "name": "edatweets",
   "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 3000 --bind 127.0.0.1"
+    "dev": "python3 -m http.server 3000 --bind 127.0.0.1",
+    "test": "node --check gallery.js && node --test tests/gallery.test.cjs && python3 -m unittest discover -s tests -p 'test_*.py'"
   },
   "engines": {
     "node": "24.x"
