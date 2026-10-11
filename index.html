@@ -12,9 +12,9 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@edatweets_" />
-  <link rel="stylesheet" href="styles.css?v=20261009-10" />
+  <link rel="stylesheet" href="styles.css?v=20261011-1" />
   <link rel="icon" href="favicon.ico" sizes="any" />
-  <script src="gallery.js?v=20261010-9" defer></script>
+  <script src="gallery.js?v=20261011-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,7 +24,7 @@
       <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open menu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h14M3 13h14"/></svg></button>
     </header>
     <nav aria-label="Main navigation" class="navigation" id="site-navigation">
-      <a class="nav-link" href="#home" data-section="home" aria-current="page">About Me</a>
+      <a class="nav-link" href="#home" data-section="home">About Me</a>
       <a class="nav-link" href="#writing" data-section="writing">Writing</a>
       <a class="nav-link" href="#work" data-section="work">Work</a>
       <a class="nav-link" href="#events" data-section="events">Events</a>
@@ -41,7 +41,7 @@
     </footer>
   </aside>
   <main id="main" tabindex="-1">
-    <section class="home-intro" id="home-intro" aria-labelledby="home-title">
+    <section class="home-intro page-section" id="home" data-title="About Me" aria-labelledby="home-title">
       <p class="eyebrow">About Me</p>
       <h1 id="home-title">I make technical products easier to understand, use, and adopt.</h1>
       <div class="bio">
@@ -52,22 +52,503 @@
         <p>You can find me terminally online on <a href="https://x.com/edatweets_" target="_blank" rel="noopener noreferrer">X</a>.</p>
       </div>
     </section>
-    <section id="portfolio" aria-labelledby="section-title" hidden>
+    <section class="portfolio-section page-section" id="writing" data-title="Selected writing" aria-labelledby="writing-title">
       <div class="gallery-heading">
         <div class="gallery-heading-main">
-          <h1 id="section-title">Selected writing</h1>
-          <nav class="writing-blogs" id="writing-blogs" aria-label="Writing blogs" hidden>
+          <h1 id="writing-title">Selected writing</h1>
+          <nav class="writing-blogs" aria-label="Writing blogs">
             <svg class="heading-divider" viewBox="0 0 40 12" aria-hidden="true"><path d="M1 6h38"/></svg>
             <span>Now: <a href="https://edatweets.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a></span>
             <span>Previously: <a href="https://paragraph.com/@edatweets" target="_blank" rel="noopener noreferrer">Paragraph</a> · <a href="https://eda.hashnode.dev/" target="_blank" rel="noopener noreferrer">Hashnode</a></span>
           </nav>
         </div>
-        <span id="item-count" aria-hidden="true"></span>
+        <span class="item-count" aria-hidden="true">08</span>
       </div>
-      <div class="gallery" id="gallery"></div>
+      <div class="gallery" id="gallery-writing" data-section="writing">
+        <article class="card" id="card-jev" data-published-at="2026-10-06">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://edatweets.substack.com/p/jev-for-everyone-else" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-jev-diagram-480.webp" srcset="assets/thumbnails/cover-jev-diagram-480.webp 480w, assets/thumbnails/cover-jev-diagram-960.webp 960w, assets/thumbnails/cover-jev-diagram-1406.webp 1406w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="301" alt="Diagram comparing JEV’s System 1 model, which returns choices, scores, and noul, with System 2 models that return text" loading="lazy" decoding="async" style="object-fit: contain" />
+              </div>
+              <div class="card-caption">
+                <h2>JEV for everyone else</h2>
+                <p class="card-meta">Technical explainer · AI · 2026</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://edatweets.substack.com/p/jev-for-everyone-else" target="_blank" rel="noopener noreferrer">Read the post<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-grok-bot" data-published-at="2026-09-16">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://edatweets.substack.com/p/building-a-company-in-3-days-with" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-grok-bot-480.webp" srcset="assets/thumbnails/cover-grok-bot-480.webp 480w, assets/thumbnails/cover-grok-bot-960.webp 960w, assets/thumbnails/cover-grok-bot-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="252" alt="Grok Bot Galaxy cover with colorful characters on a black background" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>Building a company in 3 days with Grok Bot</h2>
+                <p class="card-meta">Marketing &amp; AI · 2026</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://edatweets.substack.com/p/building-a-company-in-3-days-with" target="_blank" rel="noopener noreferrer">Read the post<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-lovable" data-published-at="2026-04-05">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://edatweets.substack.com/p/on-lovable" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-lovable-480.webp" srcset="assets/thumbnails/cover-lovable-480.webp 480w, assets/thumbnails/cover-lovable-960.webp 960w, assets/thumbnails/cover-lovable-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="240" alt="Lovable in numbers, an image from the article" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>On Lovable</h2>
+                <p class="card-meta">Marketing &amp; growth · 2026</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://edatweets.substack.com/p/on-lovable" target="_blank" rel="noopener noreferrer">Read the post<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-free-hat" data-published-at="2025-10-05">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://edatweets.substack.com/p/2-hours-in-line-for-a-free-hat" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/claude-hats-480.webp" srcset="assets/thumbnails/claude-hats-480.webp 480w, assets/thumbnails/claude-hats-882.webp 882w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="436" alt="Claude’s pop-up at the Air Mail café, with a bicycle outside" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>2 Hours in Line for a Free Hat</h2>
+                <p class="card-meta">Marketing &amp; culture · 2025</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://edatweets.substack.com/p/2-hours-in-line-for-a-free-hat" target="_blank" rel="noopener noreferrer">Read the post<span aria-hidden="true">↗</span></a>
+              <a class="external-link" href="https://x.com/edatweets_/status/1974864591848157250" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-intents-guide" data-published-at="2025-02-24">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://paragraph.com/@edatweets/a-developer-s-guide-to-intents-the-open-intents-framework" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-intents-480.webp" srcset="assets/thumbnails/cover-intents-480.webp 480w, assets/thumbnails/cover-intents-960.webp 960w, assets/thumbnails/cover-intents-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="240" alt="Cover of A Developer’s Guide to Intents and the Open Intents Framework" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>A Developer’s Guide to Intents</h2>
+                <p class="card-meta">Technical explainer · 2025</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://paragraph.com/@edatweets/a-developer-s-guide-to-intents-the-open-intents-framework" target="_blank" rel="noopener noreferrer">Read the guide<span aria-hidden="true">↗</span></a>
+              <a class="external-link" href="https://x.com/edatweets_/status/1894091793773236315" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-hyperlane-guide" data-published-at="2024-12-02">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://paragraph.com/@edatweets/a-developer-s-guide-to-interoperability-with-hyperlane" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-hyperlane-480.webp" srcset="assets/thumbnails/cover-hyperlane-480.webp 480w, assets/thumbnails/cover-hyperlane-960.webp 960w, assets/thumbnails/cover-hyperlane-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="240" alt="Cover of A Developer’s Guide to Interoperability with Hyperlane" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>A Developer’s Guide to Interoperability with Hyperlane</h2>
+                <p class="card-meta">Technical explainer · 2024</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://paragraph.com/@edatweets/a-developer-s-guide-to-interoperability-with-hyperlane" target="_blank" rel="noopener noreferrer">Read the guide<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-defi-gho" data-published-at="2024-01-26">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://paragraph.com/@edatweets/a-developer-s-intro-to-defi-building-w-gho" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-defi-gho-480.webp" srcset="assets/thumbnails/cover-defi-gho-480.webp 480w, assets/thumbnails/cover-defi-gho-960.webp 960w, assets/thumbnails/cover-defi-gho-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="240" alt="Cover of A Developer’s Intro to DeFi and Building with GHO" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>A Developer’s Intro to DeFi &amp; Building w/GHO</h2>
+                <p class="card-meta">Technical tutorial · 2024</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://paragraph.com/@edatweets/a-developer-s-intro-to-defi-building-w-gho" target="_blank" rel="noopener noreferrer">Read the tutorial<span aria-hidden="true">↗</span></a>
+              <a class="external-link" href="https://x.com/edatweets_/status/1750927636635742233" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-zk-guide" data-published-at="2023-12-04">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://paragraph.com/@edatweets/zero-knowledge-proofs-in-plain-english" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual">
+                <img src="assets/thumbnails/cover-zk-480.webp" srcset="assets/thumbnails/cover-zk-480.webp 480w, assets/thumbnails/cover-zk-960.webp 960w, assets/thumbnails/cover-zk-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="240" alt="Cover of Zero-Knowledge Proofs in Plain English" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>Zero-Knowledge Proofs in Plain English</h2>
+                <p class="card-meta">Cryptography · 2023</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://paragraph.com/@edatweets/zero-knowledge-proofs-in-plain-english" target="_blank" rel="noopener noreferrer">Read the post<span aria-hidden="true">↗</span></a>
+              <a class="external-link" href="https://x.com/edatweets_/status/1731668335056568725" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="portfolio-section page-section" id="work" data-title="Work" aria-labelledby="work-title">
+      <div class="gallery-heading sr-only">
+        <div class="gallery-heading-main">
+          <h1 id="work-title">Work</h1>
+        </div>
+        <span class="item-count" aria-hidden="true">12</span>
+      </div>
+      <div class="gallery" id="gallery-work" data-section="work">
+        <section class="work-group" id="work-videos" data-group="videos" aria-labelledby="work-videos-title">
+          <h2 class="work-group-title" id="work-videos-title">Videos</h2>
+          <div class="work-grid">
+            <article class="card" id="card-builder-show">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://www.youtube.com/watch?v=cPNrYKR9rtI&amp;list=PLnVqcyNGbH00XdrWBNM6DiPkF6SYBCY_G" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/builder-show-wide-480.webp" srcset="assets/thumbnails/builder-show-wide-480.webp 480w, assets/thumbnails/builder-show-wide-960.webp 960w, assets/thumbnails/builder-show-wide-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="270" alt="The Builder Show artwork featuring Eda Akturk and Austin Griffith" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>The Builder Show</h3>
+                    <p class="card-meta">Podcast co-host · 2024</p>
+                  </div>
+                </a>
+                <p class="card-description">Co-hosted The Builder Show with Austin Griffith, where we talked with people building in crypto.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://www.youtube.com/watch?v=cPNrYKR9rtI&amp;list=PLnVqcyNGbH00XdrWBNM6DiPkF6SYBCY_G" target="_blank" rel="noopener noreferrer">Watch on YT<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://creators.spotify.com/pod/profile/buidlguidl/" target="_blank" rel="noopener noreferrer">Listen on Spotify<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://x.com/edatweets_/status/1767156509694116301" target="_blank" rel="noopener noreferrer">Launch post on X<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-web2-web3">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://www.youtube.com/watch?v=zuJ-elbo88E&amp;list=PLJz1HruEnenAf80uOfDwBPqaliJkjKg69" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/talk-web3-480.webp" srcset="assets/thumbnails/talk-web3-480.webp 480w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="360" alt="Web2 to Web3: Building on Ethereum video series" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>Web2 to Web3: Building on Ethereum</h3>
+                    <p class="card-meta">Video series creator · 2022</p>
+                  </div>
+                </a>
+                <p class="card-description">Created a 15-part video guide to building on Ethereum with Austin Griffith and Carlos.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://www.youtube.com/watch?v=zuJ-elbo88E&amp;list=PLJz1HruEnenAf80uOfDwBPqaliJkjKg69" target="_blank" rel="noopener noreferrer">Watch the series<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://x.com/edatweets_/status/1575177155738099712" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="work-group" id="work-community" data-group="community" aria-labelledby="work-community-title">
+          <h2 class="work-group-title" id="work-community-title">Projects and Community</h2>
+          <div class="work-grid">
+            <article class="card" id="card-batches">
+              <div class="card-inner">
+                <div class="card-visual">
+                  <img src="assets/thumbnails/batches-onboarding-480.webp" srcset="assets/thumbnails/batches-onboarding-480.webp 480w, assets/thumbnails/batches-onboarding-960.webp 960w, assets/thumbnails/batches-onboarding-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="282" alt="BG Onboarding Batches artwork with an illustrated slide and the text From beginner to expert in open source dApp development" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-caption">
+                  <h3>BuidlGuidl Batches</h3>
+                  <p class="card-meta">Program launch · BuidlGuidl core team</p>
+                </div>
+                <p class="card-description">Helped create and lead BuidlGuidl Batches, a program where developers contribute to open source and build Ethereum apps together.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://buidlguidl.com/batches" target="_blank" rel="noopener noreferrer">Batches homepage<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-ethgunu">
+              <div class="card-inner">
+                <div class="card-visual">
+                  <img src="assets/thumbnails/g-fireside-480.webp" srcset="assets/thumbnails/g-fireside-480.webp 480w, assets/thumbnails/g-fireside-960.webp 960w, assets/thumbnails/g-fireside-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="310" alt="Fireside chat with Aya Miyaguchi at ETHGünü in Istanbul" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-caption">
+                  <h3>ETHGünü</h3>
+                  <p class="card-meta">Core organizer · Istanbul · 2023</p>
+                </div>
+                <p class="card-description">Core organizer of ETHGünü, an Ethereum event bringing together around 2,000 attendees during Devconnect Istanbul 2023. Also hosted a fireside chat with Aya Miyaguchi, then Executive Director of the Ethereum Foundation.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://ethgunu.com/en/" target="_blank" rel="noopener noreferrer">Visit ETHGünü<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://streameth.org/watch/65b8f8cea5b2d09b88ec1055" target="_blank" rel="noopener noreferrer">Watch the fireside chat<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-bg-newsletter">
+              <div class="card-inner">
+                <div class="card-visual">
+                  <img src="assets/thumbnails/bg-shipping-log-36-460.webp" srcset="assets/thumbnails/bg-shipping-log-36-460.webp 460w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="460" height="241" alt="Shipping Log artwork with a sailboat between colorful coastal cliffs" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-caption">
+                  <h3>BuidlGuidl newsletter</h3>
+                  <p class="card-meta">Launch &amp; editorial lead</p>
+                </div>
+                <p class="card-description">Launched and ran BuidlGuidl’s newsletter, sharing what developers were building across the community.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://buidlguidl.substack.com/" target="_blank" rel="noopener noreferrer">Read the newsletter<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-judging">
+              <div class="card-inner">
+                <div class="card-visual">
+                  <img src="assets/thumbnails/ethglobal-tokyo-480.webp" srcset="assets/thumbnails/ethglobal-tokyo-480.webp 480w, assets/thumbnails/ethglobal-tokyo-960.webp 960w, assets/thumbnails/ethglobal-tokyo-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="270" alt="Official ETHGlobal Tokyo artwork showing a nighttime street with Ethereum neon signs" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-caption">
+                  <h3>Hackathon judging</h3>
+                  <p class="card-meta">Hackathon judge · Tokyo, Istanbul &amp; Seoul</p>
+                </div>
+                <p class="card-description">Judged at ETHGlobal Tokyo and Istanbul in 2023, and ETH Seoul in 2024.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://ethglobal.com/events/tokyo" target="_blank" rel="noopener noreferrer">ETHGlobal Tokyo<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://ethglobal.com/events/istanbul" target="_blank" rel="noopener noreferrer">ETHGlobal Istanbul<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://www.ethseoul.org/ethseoul2024.html" target="_blank" rel="noopener noreferrer">ETH Seoul<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-100-days">
+              <div class="card-inner">
+                <div class="card-visual">
+                  <img src="assets/thumbnails/100-days-web3-480.webp" srcset="assets/thumbnails/100-days-web3-480.webp 480w, assets/thumbnails/100-days-web3-960.webp 960w, assets/thumbnails/100-days-web3-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="270" alt="My Web3 Journey: Day 100 of #100daysofWeb3 on a colorful gradient background" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-caption">
+                  <h3>100 Days of Web3</h3>
+                  <p class="card-meta">100-day learning challenge</p>
+                </div>
+                <p class="card-description">Documented learning and building with blockchains on my blog and X (formerly Twitter). The challenge that started my career in crypto.</p>
+                <div class="card-links">
+                  <a class="external-link" href="https://eda.hashnode.dev/my-web3-journey-day-100-of-100daysofweb3" target="_blank" rel="noopener noreferrer">Read the blog post<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://x.com/edatweets_/status/1483040244530393090" target="_blank" rel="noopener noreferrer">See the thread<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="work-group" id="work-talks" data-group="talks" aria-labelledby="work-talks-title">
+          <h2 class="work-group-title" id="work-talks-title">Talks &amp; workshops</h2>
+          <div class="work-grid">
+            <article class="card" id="card-ethcc-intents">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://www.youtube.com/watch?v=-nKZEl3M9oY" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/talk-intents-480.webp" srcset="assets/thumbnails/talk-intents-480.webp 480w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="360" alt="Video thumbnail for A Beginner’s Guide to Intents and the Open Intents Framework" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>A Beginner’s Guide to Intents &amp; the Open Intents Framework</h3>
+                    <p class="card-meta">Speaker · ETHCC, Cannes · 2025</p>
+                  </div>
+                </a>
+                <div class="card-links">
+                  <a class="external-link" href="https://www.youtube.com/watch?v=-nKZEl3M9oY" target="_blank" rel="noopener noreferrer">Watch the talk<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-seoul-workshop">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://www.youtube.com/watch?v=FYuDggnYpFA&amp;t=72s" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/talk-seoul-480.webp" srcset="assets/thumbnails/talk-seoul-480.webp 480w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="360" alt="Video thumbnail for Eda Akturk’s Building Dapps on Ethereum with ScaffoldETHv2 workshop at ETH Seoul 2024" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>Building Dapps on Ethereum with ScaffoldETHv2</h3>
+                    <p class="card-meta">Workshop instructor · ETH Seoul · 2024</p>
+                  </div>
+                </a>
+                <div class="card-links">
+                  <a class="external-link" href="https://www.youtube.com/watch?v=FYuDggnYpFA&amp;t=72s" target="_blank" rel="noopener noreferrer">Watch the workshop<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-hyperlane-mcp">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://x.com/hyperlane/status/1935063992827092996" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/demo-hyperlane-opening-480.webp" srcset="assets/thumbnails/demo-hyperlane-opening-480.webp 480w, assets/thumbnails/demo-hyperlane-opening-960.webp 960w, assets/thumbnails/demo-hyperlane-opening-1280.webp 1280w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="270" alt="Eda presenting the Hyperlane MCP demo in front of a brick wall" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>Hyperlane MCP</h3>
+                    <p class="card-meta">Demo · 2025</p>
+                  </div>
+                </a>
+                <div class="card-links">
+                  <a class="external-link" href="https://x.com/hyperlane/status/1935063992827092996" target="_blank" rel="noopener noreferrer">Watch demo<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-onchainkit">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://x.com/edatweets_/status/1823003723548762597" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/demo-onchainkit-480.webp" srcset="assets/thumbnails/demo-onchainkit-480.webp 480w, assets/thumbnails/demo-onchainkit-960.webp 960w, assets/thumbnails/demo-onchainkit-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="270" alt="Eda demonstrating the OnchainKit extension for Scaffold-ETH 2" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>Scaffold-ETH 2 × OnchainKit</h3>
+                    <p class="card-meta">Demo · 2024</p>
+                  </div>
+                </a>
+                <div class="card-links">
+                  <a class="external-link" href="https://x.com/edatweets_/status/1823003723548762597" target="_blank" rel="noopener noreferrer">Watch demo<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card" id="card-fuel-toolkit">
+              <div class="card-inner">
+                <a class="card-main-link" href="https://www.youtube.com/watch?v=XwaAJEnnVcE" target="_blank" rel="noopener noreferrer">
+                  <div class="card-visual">
+                    <img src="assets/thumbnails/fuel-dapp-toolkit-480.webp" srcset="assets/thumbnails/fuel-dapp-toolkit-480.webp 480w, assets/thumbnails/fuel-dapp-toolkit-960.webp 960w, assets/thumbnails/fuel-dapp-toolkit-1440.webp 1440w" sizes="(max-width: 480px) calc(100vw - 48px), (max-width: 700px) calc((100vw - 66px) / 2), (max-width: 1100px) calc((100vw - 315px) / 2), (min-width: 1700px) calc((100vw - 454px) / 3), calc((100vw - 396px) / 3)" width="480" height="301" alt="The Fuel dApp Template interface built by Carlos and Eda" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="card-caption">
+                    <h3>Fuel dApp Template</h3>
+                    <p class="card-meta">Demo · 2023</p>
+                  </div>
+                </a>
+                <div class="card-links">
+                  <a class="external-link" href="https://www.youtube.com/watch?v=XwaAJEnnVcE" target="_blank" rel="noopener noreferrer">Watch demo<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://github.com/edakturk14/fuel-dapp-template" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a>
+                  <a class="external-link" href="https://x.com/edatweets_/status/1645468100874076172" target="_blank" rel="noopener noreferrer">View on X<span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="portfolio-section page-section" id="events" data-title="Events" aria-labelledby="events-title">
+      <div class="gallery-heading">
+        <div class="gallery-heading-main">
+          <h1 id="events-title">Events</h1>
+        </div>
+        <span class="item-count" aria-hidden="true">08</span>
+      </div>
+      <div class="gallery" id="gallery-events" data-section="events">
+        <article class="card" id="card-brussels">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/g-workshop.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 1.13">
+                <img src="assets/thumbnails/g-workshop-480.webp" srcset="assets/thumbnails/g-workshop-480.webp 480w, assets/thumbnails/g-workshop-800.webp 800w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="360" alt="Eda leading a developer workshop in Brussels" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>Workshop in Brussels</h2>
+                <p class="card-meta">Brussels · 2024</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+        <article class="card" id="card-buenos-aires">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/g-argentina.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 0.9">
+                <img src="assets/thumbnails/g-argentina-480.webp" srcset="assets/thumbnails/g-argentina-480.webp 480w, assets/thumbnails/g-argentina-960.webp 960w, assets/thumbnails/g-argentina-1200.webp 1200w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="640" alt="At Devconnect in Buenos Aires" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>Devconnect, Buenos Aires</h2>
+                <p class="card-meta">Buenos Aires · 2025</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+        <article class="card" id="card-cryptist">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/g-cryptist.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 1.2">
+                <img src="assets/thumbnails/g-cryptist-480.webp" srcset="assets/thumbnails/g-cryptist-480.webp 480w, assets/thumbnails/g-cryptist-960.webp 960w, assets/thumbnails/g-cryptist-1105.webp 1105w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="307" alt="Group photo at Cryptist in Istanbul" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>Cryptist, Istanbul</h2>
+                <p class="card-meta">Istanbul · 2022</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+        <article class="card" id="card-ctf">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/g-ctf.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 1.05">
+                <img src="assets/thumbnails/g-ctf-480.webp" srcset="assets/thumbnails/g-ctf-480.webp 480w, assets/thumbnails/g-ctf-960.webp 960w, assets/thumbnails/g-ctf-1280.webp 1280w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="360" alt="BuidlGuidl CTF crew at Devcon SEA" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>BuidlGuidl CTF at Devcon SEA</h2>
+                <p class="card-meta">Devcon SEA · 2024</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+        <article class="card" id="card-volunteers">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/g-team.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 1.25">
+                <img src="assets/thumbnails/g-team-480.webp" srcset="assets/thumbnails/g-team-480.webp 480w, assets/thumbnails/g-team-960.webp 960w, assets/thumbnails/g-team-1280.webp 1280w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="270" alt="ETHGünü volunteers together on stage" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>The ETHGünü crew</h2>
+                <p class="card-meta">Istanbul · 2023</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+        <article class="card" id="card-ethgunu-stage">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://streameth.org/watch/65b8f8d0a5b2d09b88ec1209" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 0.9">
+                <img src="assets/thumbnails/talk-ethgunu-480.webp" srcset="assets/thumbnails/talk-ethgunu-480.webp 480w, assets/thumbnails/talk-ethgunu-960.webp 960w, assets/thumbnails/talk-ethgunu-1440.webp 1440w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="640" alt="Eda presenting at ETHGünü" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>ETHGünü</h2>
+                <p class="card-meta">Istanbul · 2023</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://streameth.org/watch/65b8f8d0a5b2d09b88ec1209" target="_blank" rel="noopener noreferrer">Watch the talk<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-fireside">
+          <div class="card-inner">
+            <a class="card-main-link" href="https://streameth.org/watch/65b8f8cea5b2d09b88ec1055" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 1.2">
+                <img src="assets/thumbnails/g-fireside-480.webp" srcset="assets/thumbnails/g-fireside-480.webp 480w, assets/thumbnails/g-fireside-960.webp 960w, assets/thumbnails/g-fireside-1440.webp 1440w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="310" alt="Eda hosting a fireside chat with Aya Miyaguchi" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>A conversation with Aya Miyaguchi</h2>
+                <p class="card-meta">ETHGünü, Istanbul · 2023</p>
+              </div>
+            </a>
+            <div class="card-links">
+              <a class="external-link" href="https://streameth.org/watch/65b8f8cea5b2d09b88ec1055" target="_blank" rel="noopener noreferrer">Watch the conversation<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="card" id="card-cannes">
+          <div class="card-inner">
+            <a class="card-main-link" href="assets/talk-cannes.jpg" target="_blank" rel="noopener noreferrer">
+              <div class="card-visual" style="aspect-ratio: 0.8">
+                <img src="assets/thumbnails/talk-cannes-480.webp" srcset="assets/thumbnails/talk-cannes-480.webp 480w, assets/thumbnails/talk-cannes-960.webp 960w, assets/thumbnails/talk-cannes-1066.webp 1066w" sizes="(max-width: 700px) calc((100vw - 64px) / 2), (max-width: 1100px) calc((100vw - 312px) / 2), (min-width: 1700px) calc((100vw - 438px) / 3), calc((100vw - 390px) / 3)" width="480" height="720" alt="Eda speaking at ETHCC in Cannes" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-caption">
+                <h2>ETHCC, Cannes</h2>
+                <p class="card-meta">Cannes · 2025</p>
+              </div>
+            </a>
+            <div class="card-links"></div>
+          </div>
+        </article>
+      </div>
     </section>
     <p class="sr-only" id="gallery-status" role="status" aria-live="polite"></p>
-    <noscript><p>Browse <a href="https://edatweets.substack.com/" target="_blank" rel="noopener noreferrer">my writing on Substack</a>, <a href="https://www.youtube.com/watch?v=-nKZEl3M9oY" target="_blank" rel="noopener noreferrer">my ETHCC talk</a>, or <a href="mailto:edakturk19@gmail.com">get in touch</a>.</p></noscript>
   </main>
 </body>
 </html>

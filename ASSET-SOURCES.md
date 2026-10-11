@@ -1,6 +1,6 @@
 # Gallery asset sources
 
-The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering live in `gallery.js`.
+The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering live in `index.html`; `gallery.js` only enhances navigation and layout. Responsive WebP variants in `assets/thumbnails/` are generated from the originals below with `scripts/optimize_images.py`, preserving framing, transparency, and attribution. Original image links remain unchanged.
 
 Additional images:
 
