@@ -18,6 +18,8 @@ Run `npm run dev`, then open http://localhost:3000. Requires Node.js and Python 
 
 After editing content, run `npm run build`. The dependency-free generator writes `index.html`, `experience/index.html`, `work/index.html`, `writing/index.html`, `events/index.html`, `sitemap.xml`, and `robots.txt`. Keep those outputs with the source changes so static hosts do not require a build step. Do not edit generated HTML directly.
 
+`vercel.json` explicitly selects the static "Other" framework, runs the generator, and serves its output from the repository root. This avoids relying on Vercel’s framework/output-directory detection after adding the build script.
+
 All new routes contain their content in HTML and work without JavaScript. Internal navigation and proof links are ordinary links. Existing `#writing`, `#work`, `#events`, `#talks`, `#other-work`, `#photos`, `#judging`, and `#section/item` bookmarks redirect to the matching page when JavaScript is available. Asset URLs and external destinations are preserved.
 
 ## Verification
