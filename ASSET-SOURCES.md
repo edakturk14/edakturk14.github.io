@@ -1,6 +1,6 @@
 # Gallery asset sources
 
-The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering live in `gallery.js`.
+The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering now live in `content/gallery.mjs`; `npm run build` renders them into the static Work, Writing, and Events pages.
 
 Additional images:
 
@@ -30,7 +30,7 @@ The Work page groups longer videos (the podcast and series), talks and workshops
 
 ## Local preview
 
-Run `npm run dev` (requires Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with no build step or external runtime dependencies. No remote changes are needed to preview it.
+Run `npm run dev` (requires Node.js and Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with a dependency-free static generation step and no external runtime dependencies. No remote changes are needed to preview it.
 
 ## Builder Show image edit
 
@@ -49,3 +49,17 @@ The Writing page has compact links to the current Substack and earlier Paragraph
 - `assets/fuel-dapp-toolkit.jpg`: original screenshot from [Eda’s Fuel toolkit announcement](https://x.com/edatweets_/status/1645468100874076172). [Original image](https://pbs.twimg.com/media/FtXf5u3WcAAyy-l.jpg?name=orig). The [repository](https://github.com/edakturk14/fuel-dapp-template) provides the linked video demo and documents the toolkit features. Eda’s March 5 and April 10, 2023 posts credit the collaboration with Carlos.
 
 - `assets/bg-shipping-log-36.webp`: original thumbnail from [BG Shipping Log #36](https://buidlguidl.substack.com/p/bg-shipping-log-36). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/0fd6c659-cce0-41d4-83be-4d208f71e778_460x241.webp).
+
+## Experience organization marks
+
+Small local marks beside organization names, added November 6, 2026. These are decorative alongside the visible names; they have empty alt text.
+
+- `assets/logos/hyperlane.png`: [Hyperlane’s official touch icon](https://cdn.prod.website-files.com/6686ac1afeef42fcf1929457/69972a991967ee30bc664a6f_256x256_favicon-hyp.png), linked from hyperlane.xyz.
+- `assets/logos/world-bank.svg`: globe symbol component from [World Bank Group’s official vector logo](https://www.worldbank.org/content/dam/wbr/logo/wbg-logo-about-en.svg), with padded bounds. Replaces the low-resolution favicon.
+- `assets/logos/cisco.svg`: the unmodified inline header logo from [Cisco’s homepage](https://www.cisco.com/).
+- `assets/logos/ethereum.png`: Ethereum’s site icon, retrieved from [Google’s favicon cache for ethereum.org](https://www.google.com/s2/favicons?domain=ethereum.org&sz=64).
+- `assets/logos/ge.png`: GE HealthCare’s site icon, retrieved from [Google’s favicon cache for gehealthcare.com](https://www.google.com/s2/favicons?domain=gehealthcare.com&sz=64).
+
+Assets are served locally; page visitors do not request these third-party favicon services.
+
+- `assets/logos/koc.svg`: complete red spiral component from the university’s vector logo, [archived on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ko%C3%A7_University_logo.svg), with padded bounds. Replaces the cropped favicon. Original vector paths and colors are preserved.
