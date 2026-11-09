@@ -15,6 +15,23 @@ Run `npm run dev`, then open http://localhost:3000. Requires Node.js and Python 
 - `content/site.mjs`: page metadata and the single production origin.
 - `styles.css`: shared styling and responsive layouts.
 - `gallery.js`: mobile navigation, event masonry, and compatibility for old hash links.
+- `scripts/thumbnails.mjs`: responsive image discovery, encoded dimensions, and display sizes matching the gallery layout.
+
+## Gallery thumbnails
+
+Cards use local WebP thumbnails at up to 480, 960, and 1440 pixels wide. The build discovers matching files in `assets/thumbnails/` and writes `srcset`, `sizes`, and intrinsic dimensions into the generated HTML. The first three cards on each page load eagerly; subsequent cards load lazily. Original images remain available through full-size photo links. A new image without thumbnails falls back to its original file.
+
+To generate thumbnails for a new or replaced image, use a separate Python environment with Pillow, then rebuild:
+
+```sh
+python3 -m venv /tmp/eda-image-tools
+/tmp/eda-image-tools/bin/pip install Pillow==12.0.0
+/tmp/eda-image-tools/bin/python scripts/optimize_images.py assets/your-image.png
+npm run build
+npm test
+```
+
+Commit the thumbnails and regenerated pages with the content change. The optimizer preserves aspect ratio, corrects EXIF orientation, and never enlarges the source. Normal builds and deployments do not need Pillow. Regression checks verify that every current gallery card has valid responsive images, while retaining its original destination, ordering, and loading priority.
 
 After editing content, run `npm run build`. The dependency-free generator writes `index.html`, `experience/index.html`, `work/index.html`, `writing/index.html`, `events/index.html`, `sitemap.xml`, and `robots.txt`. Keep those outputs with the source changes so static hosts do not require a build step. Do not edit generated HTML directly.
 

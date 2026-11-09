@@ -31,6 +31,8 @@ The Work page groups longer videos (the podcast and series), talks and workshops
 
 ## Local preview
 
+Gallery cards use WebP derivatives in `assets/thumbnails/`, generated from the original assets above with `scripts/optimize_images.py` (480/960/1440px maximum widths, quality 85). These preserve the original artwork and aspect ratios; the existing CSS controls the displayed crop. Source assets and full-size photo links remain intact. The November 2026 update includes the latest ChatGPT explainer cover.
+
 Run `npm run dev` (requires Node.js and Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with a dependency-free static generation step and no external runtime dependencies. No remote changes are needed to preview it.
 
 ## Builder Show image edit

@@ -2,17 +2,22 @@ import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {items, workGroups} from '../content/gallery.mjs';
 import {origin, pages} from '../content/site.mjs';
+import {loadThumbnails, imageSizes} from './thumbnails.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = path => readFile(new URL(path, root), 'utf8');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const template = await read('content/layout.html');
+const thumbnails = await loadThumbnails(root, items);
 const external = (url, label, className = '') => `<a${className ? ` class="${className}"` : ''} href="${escape(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
 
 function card(item, index) {
   const image = `/${item.image}`;
+  const candidates = thumbnails.get(item.image);
+  const thumbnail = candidates?.[0];
+  const responsive = thumbnail ? ` srcset="${escape(candidates.map(candidate => `/${candidate.path} ${candidate.width}w`).join(', '))}" sizes="${imageSizes(item.section)}" width="${thumbnail.width}" height="${thumbnail.height}"` : '';
   const heading = item.section === 'work' ? 'h3' : 'h2';
-  const visual = `<div class="card-visual"${item.section === 'events' ? ` style="aspect-ratio:${item.ratio}"` : ''}><img src="${escape(image)}" alt="${escape(item.alt)}" loading="${index < 3 ? 'eager' : 'lazy'}" decoding="async"${item.fit ? ` style="object-fit:${item.fit}"` : ''} /></div>`;
+  const visual = `<div class="card-visual"${item.section === 'events' ? ` style="aspect-ratio:${item.ratio}"` : ''}><img src="${escape(thumbnail ? `/${thumbnail.path}` : image)}"${responsive} alt="${escape(item.alt)}" loading="${index < 3 ? 'eager' : 'lazy'}" decoding="async"${item.fit ? ` style="object-fit:${item.fit}"` : ''} /></div>`;
   const caption = `<div class="card-caption"><${heading}>${escape(item.title)}</${heading}><p class="card-meta">${escape(item.meta)}</p></div>`;
   const main = item.group === 'community' ? visual + caption : external(item.links?.[0]?.[1] || image, visual + caption, 'card-main-link');
   const links = (item.links || []).map(([label, url]) => external(url, `${escape(label)} <span aria-hidden="true">↗</span>`, 'external-link')).join('\n');
