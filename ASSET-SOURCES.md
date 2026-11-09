@@ -4,6 +4,7 @@ The October 2026 local redesign retains the site's existing photographs, caption
 
 Additional images:
 
+- `assets/cover-chatgpt-question.png`: original pixel-art cover from [What Happens When You Ask ChatGPT a Question?](https://edatweets.substack.com/p/what-happens-when-you-ask-chatgpt), published November 8, 2026. [Original image](https://substack-post-media.s3.amazonaws.com/public/images/a6eaa7f5-bdf4-457f-9a2b-484fffc06f7b_1731x909.png). Uses the existing centered 2:1 Writing card crop; the diagram and labels remain within the frame.
 - `assets/cover-grok-bot.png`: original cover from [Building a company in 3 days with Grok Bot](https://edatweets.substack.com/p/building-a-company-in-3-days-with). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/644fba67-4fe4-4e85-8c00-fbf6d3ba7e10_1731x909.png).
 - `assets/cover-jev-diagram.png`: the System 1 / System 2 comparison diagram supplied directly by Eda for [JEV for everyone else](https://edatweets.substack.com/p/jev-for-everyone-else). Displayed uncropped, with no added padding or background.
 - `assets/ef-garden.png`: official forest/garden illustration from [The Ethereum Foundation’s Vision](https://blog.ethereum.org/2025/04/28/ef-vision). [Original image](https://storage.googleapis.com/ethereum-hackmd/upload_d984abf1f8154b4a02f8b742f328b5e9.png). Illustrative branding, not an image of Eda’s grant.

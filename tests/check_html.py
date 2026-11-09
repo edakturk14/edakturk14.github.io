@@ -67,10 +67,10 @@ for route, page in pages.items():
             assert file.is_file(), f'Missing asset: {route} → {link}'
 
 assert pages['/work/'].cards == 12
-assert pages['/writing/'].cards == 8
+assert pages['/writing/'].cards == 9
 assert pages['/events/'].cards == 8
 assert pages['/experience/'].roles == 5
 sitemap = ET.parse(ROOT / 'sitemap.xml')
 urls = [node.text for node in sitemap.findall('.//{*}loc')]
 assert urls == [page.canonical for page in pages.values()]
-print(f'Checked {len(pages)} static pages, 28 portfolio cards, 5 roles, navigation, metadata, sitemap, and all local links/assets.')
+print(f'Checked {len(pages)} static pages, {sum(page.cards for page in pages.values())} portfolio cards, 5 roles, navigation, metadata, sitemap, and all local links/assets.')
