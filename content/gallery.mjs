@@ -4,7 +4,7 @@ export const items = [
   {id:'bg-newsletter',section:'work',group:'community',title:'BuidlGuidl newsletter',meta:'Launch & editorial lead',image:'assets/bg-shipping-log-36.webp',alt:'Shipping Log artwork with a sailboat between colorful coastal cliffs',description:'Launched and ran BuidlGuidl’s newsletter, sharing what developers were building across the community.',links:[['Read the newsletter','https://buidlguidl.substack.com/']]},
   {id:'fuel-toolkit',section:'work',group:'talks',title:'Fuel dApp Template',meta:'Demo · 2023',image:'assets/fuel-dapp-toolkit.jpg',alt:'The Fuel dApp Template interface built by Carlos and Eda',links:[['Watch demo','https://www.youtube.com/watch?v=XwaAJEnnVcE'],['GitHub','https://github.com/edakturk14/fuel-dapp-template'],['View on X','https://x.com/edatweets_/status/1645468100874076172']]},
   {id:'defi-gho',section:'writing',publishedAt:'2024-01-26',title:'A Developer’s Intro to DeFi & Building w/GHO',meta:'Technical tutorial · 2024',image:'assets/cover-defi-gho.png',alt:'Cover of A Developer’s Intro to DeFi and Building with GHO',links:[['Read the tutorial','https://paragraph.com/@edatweets/a-developer-s-intro-to-defi-building-w-gho'],['View on X','https://x.com/edatweets_/status/1750927636635742233']]},
-  {id:'hyperlane-mcp',section:'work',group:'talks',title:'Hyperlane MCP',meta:'Demo · 2025',image:'assets/demo-hyperlane-opening.png',alt:'Eda presenting the Hyperlane MCP demo in front of a brick wall',links:[['Watch demo','https://x.com/hyperlane/status/1935063992827092996']]},
+  {id:'hyperlane-mcp',section:'work',group:'community',title:'Hyperlane MCP',meta:'Demo · 2025',image:'assets/demo-hyperlane-opening.png',alt:'Eda presenting the Hyperlane MCP demo in front of a brick wall',description:'Created Hyperlane’s bounty program for AI builders. This demo showcases one of the projects built through the program.',links:[['Watch demo','https://x.com/hyperlane/status/1935063992827092996']]},
   {id:'onchainkit',section:'work',group:'talks',title:'Scaffold-ETH 2 × OnchainKit',meta:'Demo · 2024',image:'assets/demo-onchainkit.jpg',alt:'Eda demonstrating the OnchainKit extension for Scaffold-ETH 2',links:[['Watch demo','https://x.com/edatweets_/status/1823003723548762597']]},
   {id:'grok-bot',section:'writing',publishedAt:'2026-09-16',title:'Building a company in 3 days with Grok Bot',meta:'Marketing & AI · 2026',image:'assets/cover-grok-bot.png',alt:'Grok Bot Galaxy cover with colorful characters on a black background',links:[['Read the post','https://edatweets.substack.com/p/building-a-company-in-3-days-with']]},
   {id:'jev',section:'writing',publishedAt:'2026-10-06',title:'JEV for everyone else',meta:'Technical explainer · AI · 2026',image:'assets/cover-jev-diagram.png',fit:'contain',alt:'Diagram comparing JEV’s System 1 model, which returns choices, scores, and noul, with System 2 models that return text',links:[['Read the post','https://edatweets.substack.com/p/jev-for-everyone-else']]},
@@ -31,7 +31,7 @@ export const items = [
   {id:'cannes',section:'events',title:'ETHCC, Cannes',meta:'Cannes · 2025',image:'assets/talk-cannes.jpg',alt:'Eda speaking at ETHCC in Cannes',ratio:.8,}
 ];
 export const workGroups = [
+  {id:'community',title:'Projects and Community',items:['batches','hyperlane-mcp','bg-newsletter','ethgunu','judging','100-days']},
   {id:'videos',title:'Videos',items:['builder-show','web2-web3']},
-  {id:'community',title:'Projects and Community',items:['batches','ethgunu','bg-newsletter','judging','100-days']},
-  {id:'talks',title:'Talks & workshops',items:['ethcc-intents','seoul-workshop','hyperlane-mcp','onchainkit','fuel-toolkit']}
+  {id:'talks',title:'Talks & workshops',items:['ethcc-intents','seoul-workshop','onchainkit','fuel-toolkit']}
 ];
