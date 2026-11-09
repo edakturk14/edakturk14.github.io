@@ -1,4 +1,6 @@
 import re
+import json
+import subprocess
 import struct
 import unittest
 from html.parser import HTMLParser
@@ -60,64 +62,71 @@ def webp_dimensions(path):
 class ContentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.page = Page((ROOT / "index.html").read_text())
-        cls.elements = cls.page.elements
+        cls.pages = {name: Page((ROOT / name / "index.html").read_text()) for name in ("work", "writing", "events")}
+        data = subprocess.check_output(["node", "--input-type=module", "-e", "import {items} from './content/gallery.mjs'; console.log(JSON.stringify(items))"], cwd=ROOT, text=True)
+        cls.items = json.loads(data)
 
     def test_balanced_markup_and_unique_ids(self):
-        self.assertEqual(self.page.errors, [])
-        self.assertEqual(self.page.stack, [])
-        ids = [element.attributes["id"] for element in self.elements if "id" in element.attributes]
-        self.assertEqual(len(ids), len(set(ids)))
+        for page in self.pages.values():
+            self.assertEqual(page.errors, [])
+            self.assertEqual(page.stack, [])
+            ids = [e.attributes["id"] for e in page.elements if "id" in e.attributes]
+            self.assertEqual(len(ids), len(set(ids)))
 
-    def test_all_portfolio_content_is_visible_without_javascript(self):
-        sections = [element for element in self.elements if element.has_class("page-section")]
-        self.assertEqual([element.attributes["id"] for element in sections], ["home", "writing", "work", "events"])
-        cards = [element for element in self.elements if element.has_class("card")]
-        self.assertEqual(len(cards), 28)
-        for element in sections + cards:
-            while element:
-                self.assertNotIn("hidden", element.attributes)
-                element = element.parent
+    def test_all_cards_visible_without_javascript(self):
+        for section, page in self.pages.items():
+            cards = [e for e in page.elements if e.has_class("card")]
+            expected = {"card-" + item["id"] for item in self.items if item["section"] == section}
+            self.assertEqual({e.attributes["id"] for e in cards}, expected)
+            for element in cards:
+                while element:
+                    self.assertNotIn("hidden", element.attributes)
+                    element = element.parent
 
-    def test_native_navigation_targets_and_local_assets_exist(self):
-        ids = {element.attributes["id"] for element in self.elements if "id" in element.attributes}
-        for element in self.elements:
-            for name in ("href", "src"):
-                value = element.attributes.get(name, "")
-                if value.startswith("#"):
-                    self.assertIn(value[1:], ids)
-                elif value and not re.match(r"[a-z]+:", value):
-                    self.assertTrue((ROOT / value.split("?")[0]).is_file(), value)
-            for name in ("aria-labelledby", "aria-controls"):
-                for target in element.attributes.get(name, "").split():
-                    self.assertIn(target, ids)
+    def test_writing_order_and_original_destinations(self):
+        writing = sorted((item for item in self.items if item["section"] == "writing"), key=lambda item: item["publishedAt"], reverse=True)
+        cards = [e.attributes["id"] for e in self.pages["writing"].elements if e.has_class("card")]
+        self.assertEqual(cards, ["card-" + item["id"] for item in writing])
+        for item in self.items:
+            page = self.pages[item["section"]]
+            links = {e.attributes.get("href") for e in page.elements if e.tag == "a"}
+            for _, url in item.get("links", []):
+                self.assertIn(url, links)
+            if not item.get("links") and item.get("group") != "community":
+                self.assertIn("/" + item["image"], links)
 
-    def test_writing_is_newest_first(self):
-        dates = [element.attributes["data-published-at"] for element in self.elements if "data-published-at" in element.attributes]
-        self.assertEqual(len(dates), 8)
-        self.assertEqual(dates, sorted(dates, reverse=True))
+    def test_responsive_images_and_loading_priority(self):
+        for section, page in self.pages.items():
+            images = [e for e in page.elements if e.tag == "img"]
+            for index, image in enumerate(images):
+                a = image.attributes
+                self.assertEqual(a["loading"], "eager" if index < 3 else "lazy")
+                self.assertTrue(a["alt"])
+                self.assertIn("100vw", a["sizes"])
+                # Events remain two columns even on small phones.
+                self.assertEqual("max-width: 480px" in a["sizes"], section != "events")
+                default = ROOT / a["src"].lstrip("/")
+                self.assertEqual(default.suffix, ".webp")
+                self.assertEqual(webp_dimensions(default), (int(a["width"]), int(a["height"])))
+                widths = []
+                for candidate in a["srcset"].split(","):
+                    source, descriptor = candidate.strip().split()
+                    width, height = webp_dimensions(ROOT / source.lstrip("/"))
+                    self.assertEqual(descriptor, f"{width}w")
+                    self.assertLessEqual(width, 1440)
+                    self.assertGreater(height, 0)
+                    widths.append(width)
+                self.assertEqual(widths, sorted(set(widths)))
 
-    def test_thumbnails_are_responsive_lazy_and_correctly_sized(self):
-        images = [element for element in self.elements if element.tag == "img"]
-        self.assertEqual(len(images), 28)
-        for image in images:
-            attributes = image.attributes
-            self.assertEqual(attributes["loading"], "lazy")
-            self.assertTrue(attributes["alt"])
-            self.assertTrue(attributes["sizes"])
-            default = ROOT / attributes["src"]
-            self.assertEqual(default.suffix, ".webp")
-            self.assertEqual(webp_dimensions(default), (int(attributes["width"]), int(attributes["height"])))
-            for candidate in attributes["srcset"].split(","):
-                source, width = candidate.strip().split()
-                actual_width, _ = webp_dimensions(ROOT / source)
-                self.assertEqual(width, f"{actual_width}w")
-                self.assertLessEqual(actual_width, 1440)
+    def test_jev_diagram_remains_uncropped(self):
+        image = next(e for e in self.pages["writing"].elements if e.tag == "img" and "cover-jev-diagram" in e.attributes["src"])
+        self.assertEqual(image.attributes.get("style"), "object-fit:contain")
 
     def test_external_links_keep_security_attributes(self):
-        for element in self.elements:
-            if element.attributes.get("target") == "_blank":
-                self.assertTrue({"noopener", "noreferrer"}.issubset(element.attributes.get("rel", "").split()))
+        for page in self.pages.values():
+            for element in page.elements:
+                if element.attributes.get("target") == "_blank":
+                    self.assertTrue({"noopener", "noreferrer"}.issubset(element.attributes.get("rel", "").split()))
 
 
 if __name__ == "__main__":

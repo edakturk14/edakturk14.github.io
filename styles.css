@@ -29,11 +29,39 @@ main {
   padding: 35px 30px 50px 14px;
   outline: 0;
 }
-.home-intro, .portfolio-section { margin: 62px 0 80px 30px; }
+.home-intro, #portfolio, .experience-page { margin: 62px 0 80px 30px; }
 .home-intro { max-width: 640px; }
 .eyebrow, .gallery-heading h1 { font-size: 11px; font-weight: 400; letter-spacing: .09em; color: var(--muted); }
 .eyebrow { margin: 0 0 24px; }
 .home-intro h1 { font-size: 32px; font-weight: 400; line-height: 1.4; letter-spacing: -.9px; margin: 0 0 35px; }
+.positioning { font-size: 13px; line-height: 1.8; margin: -14px 0 35px; }
+.positioning p { margin: 0 0 5px; }
+.experience-page { max-width: 760px; }
+.experience-intro { margin-bottom: 24px; }
+.experience-role { padding: 29px 0 32px; border-top: 1px solid var(--line); scroll-margin-top: 30px; font-size: 14px; line-height: 1.85; }
+.experience-intro + .experience-role { border-top: 0; padding-top: 0; }
+.role-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; }
+.role-header h2 { display: flex; align-items: center; gap: 4px; font-size: 20px; font-weight: 400; letter-spacing: -.35px; line-height: 1.4; margin: 0; }
+.company-logo { display: block; flex: 0 0 24px; width: 24px; height: 24px; margin-right: 7px; object-fit: contain; }
+.company-status { margin-left: 4px; font-size: 11px; letter-spacing: 0; color: var(--muted); white-space: nowrap; }
+.company-link { display: inline-grid; place-items: center; flex: 0 0 32px; height: 32px; color: var(--muted); border-radius: 50%; transition: color .16s, background-color .16s; }
+.company-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.company-link:hover, .company-link:focus-visible { color: var(--accent-focus); background: var(--accent-soft); }
+.role-header .role-period { font-size: 12px; margin: 0; color: var(--muted); white-space: nowrap; }
+.experience-role > p { max-width: 650px; color: var(--muted); margin: 14px 0 0; }
+.experience-role > .role-title { color: var(--ink); font-size: 13px; margin-top: 5px; }
+.role-highlights { max-width: 650px; padding-left: 18px; margin: 17px 0 0; color: var(--muted); }
+.role-highlights li { padding-left: 3px; margin-bottom: 7px; }
+.role-highlights li::marker { color: var(--accent-focus); font-size: 10px; }
+.experience-link { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 4px; }
+.experience-link:hover, .experience-link:focus-visible { text-decoration-color: var(--ink); }
+.experience-role-compact { padding-top: 24px; padding-bottom: 26px; }
+.experience-role-compact .role-header h2 { font-size: 18px; }
+.education-section { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 12px; }
+.education-section .eyebrow { margin-bottom: 20px; }
+.education-section h3 { display: flex; align-items: center; gap: 4px; font-size: 18px; font-weight: 400; letter-spacing: -.35px; margin: 0 0 10px; }
+.education-section p { margin: 0 0 5px; color: var(--muted); font-size: 14px; }
+.education-section .education-note { font-size: 12px; }
 .bio { max-width: 590px; font-size: 15px; line-height: 1.85; color: var(--muted); }
 .bio p { margin: 0 0 20px; }
 .bio a, .writing-blogs a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 4px; }
@@ -44,7 +72,7 @@ main {
 .writing-blogs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; font-size: 11px; line-height: 1.85; color: var(--muted); }
 .heading-divider { width: 40px; height: 12px; align-self: center; flex: 0 0 40px; }
 .heading-divider path { stroke: var(--accent-line); stroke-width: 1; }
-.item-count { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+#item-count { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
 .gallery, .work-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px 25px; align-items: start; }
 .gallery[data-section=work] { display: block; }
 .work-group + .work-group { margin-top: 54px; padding-top: 28px; border-top: 1px solid var(--line); }
@@ -84,7 +112,7 @@ main {
   .sidebar { padding-left: 29px; padding-right: 28px; }
   .name { font-size: 26px; }
   .gallery, .work-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .home-intro, .portfolio-section { margin-left: 12px; }
+  .home-intro, #portfolio, .experience-page { margin-left: 12px; }
 }
 @media(max-width:700px) {
   body { min-height: 100svh; display: flex; flex-direction: column; }
@@ -93,9 +121,9 @@ main {
   .name { font-size: 27px; }
   .enhanced .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; font-size: 12px; }
   .mobile-menu-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; }
-  .navigation { margin-top: 14px; border-top: 1px solid var(--line); padding: 10px 0; }
+  .navigation { display: block; margin-top: 14px; border-top: 1px solid var(--line); padding: 10px 0; }
   .enhanced .navigation { display: none; }
-  .enhanced .sidebar[data-menu-open=true] .navigation { display: block; }
+  .sidebar[data-menu-open=true] .navigation { display: block; }
   .nav-link { font-size: 14px; min-height: 44px; padding: 11px 0; gap: 6px; }
   .sidebar-footer { display: block; padding: 16px 24px max(20px, env(safe-area-inset-bottom)); margin-top: auto; position: static; border-top: 1px solid var(--line); }
   .socials { gap: 12px; margin: 0; }
@@ -103,8 +131,14 @@ main {
   .socials svg { width: 15px; height: 15px; }
   .sidebar-footer>p { display: none; }
   main { flex: 1; margin: 0; padding: 18px 24px 35px; }
-  .home-intro, .portfolio-section { margin: 25px 0 40px; }
+  .home-intro, #portfolio, .experience-page { margin: 25px 0 40px; }
   .home-intro h1 { font-size: 27px; margin-bottom: 28px; }
+  .positioning { font-size: 12px; margin-bottom: 28px; }
+  .experience-intro { margin-bottom: 18px; }
+  .role-header { display: block; }
+  .role-header .role-period { margin-top: 5px; }
+  .role-header h2 { font-size: 19px; }
+  .experience-role { padding-top: 25px; padding-bottom: 27px; }
   .bio { font-size: 14px; }
   .eyebrow { margin-bottom: 18px; }
   .gallery-heading { margin-bottom: 18px; }

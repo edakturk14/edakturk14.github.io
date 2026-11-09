@@ -1,9 +1,10 @@
 # Gallery asset sources
 
-The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering live in `index.html`; `gallery.js` only enhances navigation and layout. Responsive WebP variants in `assets/thumbnails/` are generated from the originals below with `scripts/optimize_images.py`, preserving framing, transparency, and attribution. Original image links remain unchanged.
+The October 2026 local redesign retains the site's existing photographs, captions, font files, and destination links. Gallery content and ordering now live in `content/gallery.mjs`; `npm run build` renders them into the static Work, Writing, and Events pages.
 
 Additional images:
 
+- `assets/cover-chatgpt-question.png`: original pixel-art cover from [What Happens When You Ask ChatGPT a Question?](https://edatweets.substack.com/p/what-happens-when-you-ask-chatgpt), published November 8, 2026. [Original image](https://substack-post-media.s3.amazonaws.com/public/images/a6eaa7f5-bdf4-457f-9a2b-484fffc06f7b_1731x909.png). Uses the existing centered 2:1 Writing card crop; the diagram and labels remain within the frame.
 - `assets/cover-grok-bot.png`: original cover from [Building a company in 3 days with Grok Bot](https://edatweets.substack.com/p/building-a-company-in-3-days-with). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/644fba67-4fe4-4e85-8c00-fbf6d3ba7e10_1731x909.png).
 - `assets/cover-jev-diagram.png`: the System 1 / System 2 comparison diagram supplied directly by Eda for [JEV for everyone else](https://edatweets.substack.com/p/jev-for-everyone-else). Displayed uncropped, with no added padding or background.
 - `assets/ef-garden.png`: official forest/garden illustration from [The Ethereum Foundation’s Vision](https://blog.ethereum.org/2025/04/28/ef-vision). [Original image](https://storage.googleapis.com/ethereum-hackmd/upload_d984abf1f8154b4a02f8b742f328b5e9.png). Illustrative branding, not an image of Eda’s grant.
@@ -30,7 +31,9 @@ The Work page groups longer videos (the podcast and series), talks and workshops
 
 ## Local preview
 
-Run `npm run dev` (requires Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with no build step or external runtime dependencies. No remote changes are needed to preview it.
+Gallery cards use WebP derivatives in `assets/thumbnails/`, generated from the original assets above with `scripts/optimize_images.py` (480/960/1440px maximum widths, quality 85). These preserve the original artwork and aspect ratios; the existing CSS controls the displayed crop. Source assets and full-size photo links remain intact. The November 2026 update includes the latest ChatGPT explainer cover.
+
+Run `npm run dev` (requires Node.js and Python 3), then visit http://127.0.0.1:3000. The site is plain HTML, CSS, and JavaScript with a dependency-free static generation step and no external runtime dependencies. No remote changes are needed to preview it.
 
 ## Builder Show image edit
 
@@ -49,3 +52,17 @@ The Writing page has compact links to the current Substack and earlier Paragraph
 - `assets/fuel-dapp-toolkit.jpg`: original screenshot from [Eda’s Fuel toolkit announcement](https://x.com/edatweets_/status/1645468100874076172). [Original image](https://pbs.twimg.com/media/FtXf5u3WcAAyy-l.jpg?name=orig). The [repository](https://github.com/edakturk14/fuel-dapp-template) provides the linked video demo and documents the toolkit features. Eda’s March 5 and April 10, 2023 posts credit the collaboration with Carlos.
 
 - `assets/bg-shipping-log-36.webp`: original thumbnail from [BG Shipping Log #36](https://buidlguidl.substack.com/p/bg-shipping-log-36). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/0fd6c659-cce0-41d4-83be-4d208f71e778_460x241.webp).
+
+## Experience organization marks
+
+Small local marks beside organization names, added November 6, 2026. These are decorative alongside the visible names; they have empty alt text.
+
+- `assets/logos/hyperlane.png`: [Hyperlane’s official touch icon](https://cdn.prod.website-files.com/6686ac1afeef42fcf1929457/69972a991967ee30bc664a6f_256x256_favicon-hyp.png), linked from hyperlane.xyz.
+- `assets/logos/world-bank.svg`: globe symbol component from [World Bank Group’s official vector logo](https://www.worldbank.org/content/dam/wbr/logo/wbg-logo-about-en.svg), with padded bounds. Replaces the low-resolution favicon.
+- `assets/logos/cisco.svg`: the unmodified inline header logo from [Cisco’s homepage](https://www.cisco.com/).
+- `assets/logos/ethereum.png`: Ethereum’s site icon, retrieved from [Google’s favicon cache for ethereum.org](https://www.google.com/s2/favicons?domain=ethereum.org&sz=64).
+- `assets/logos/ge.png`: GE HealthCare’s site icon, retrieved from [Google’s favicon cache for gehealthcare.com](https://www.google.com/s2/favicons?domain=gehealthcare.com&sz=64).
+
+Assets are served locally; page visitors do not request these third-party favicon services.
+
+- `assets/logos/koc.svg`: complete red spiral component from the university’s vector logo, [archived on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ko%C3%A7_University_logo.svg), with padded bounds. Replaces the cropped favicon. Original vector paths and colors are preserved.
