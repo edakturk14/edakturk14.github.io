@@ -88,6 +88,8 @@ main {
 .card:hover img, .card:focus-within img { filter: saturate(.95); transform: scale(1.015); }
 #card-batches img { transform: scale(1.16); }
 #card-batches:hover img, #card-batches:focus-within img { transform: scale(1.175); }
+#card-turkish-contract-course img { transform: scale(1.12); }
+#card-turkish-contract-course:hover img, #card-turkish-contract-course:focus-within img { transform: scale(1.135); }
 .card-main-link { display: block; }
 .card-main-link:hover :is(h2,h3), .card-main-link:focus-visible :is(h2,h3) { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .card-caption { position: relative; padding: 15px 0 0; }

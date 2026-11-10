@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/build.mjs && python3 -m http.server 3000 --bind 127.0.0.1",
-    "test": "node --test tests/routes.test.cjs && python3 tests/check_html.py && python3 -m unittest discover -s tests -p 'test_*.py' && node --check gallery.js"
+    "test": "node --test tests/*.test.cjs && python3 tests/check_html.py && python3 -m unittest discover -s tests -p 'test_*.py' && node --check gallery.js"
   },
   "engines": {
     "node": "24.x"

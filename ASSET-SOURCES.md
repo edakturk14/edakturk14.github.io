@@ -4,6 +4,8 @@ The October 2026 local redesign retains the site's existing photographs, caption
 
 Additional images:
 
+- `assets/turkish-course-landscape.png`: fantasy landscape supplied directly by Eda on November 10, 2026 for the [Turkish-language smart contract course](https://smart-contract-developer-course-tr.vercel.app/). Uses the standard centered cover crop to fill the Projects and Community card; responsive WebP versions use the existing optimizer. No text or flag has been added.
+
 - `assets/cover-chatgpt-question.png`: original pixel-art cover from [What Happens When You Ask ChatGPT a Question?](https://edatweets.substack.com/p/what-happens-when-you-ask-chatgpt), published November 8, 2026. [Original image](https://substack-post-media.s3.amazonaws.com/public/images/a6eaa7f5-bdf4-457f-9a2b-484fffc06f7b_1731x909.png). Uses the existing centered 2:1 Writing card crop; the diagram and labels remain within the frame.
 - `assets/cover-grok-bot.png`: original cover from [Building a company in 3 days with Grok Bot](https://edatweets.substack.com/p/building-a-company-in-3-days-with). [Original image](https://substack-post-media.s3.amazonaws.com/public/images/644fba67-4fe4-4e85-8c00-fbf6d3ba7e10_1731x909.png).
 - `assets/cover-jev-diagram.png`: the System 1 / System 2 comparison diagram supplied directly by Eda for [JEV for everyone else](https://edatweets.substack.com/p/jev-for-everyone-else). Displayed uncropped, with no added padding or background.
