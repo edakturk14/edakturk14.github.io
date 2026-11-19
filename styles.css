@@ -14,17 +14,15 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent-focus);outli
 .name-dot{color:var(--accent)}
 .mobile-menu-toggle{display:none}
 .navigation{margin-top:76px;flex:1}
-.nav-link{display:flex;align-items:center;gap:10px;min-height:40px;font-size:14px;padding:8px 0;color:var(--muted);transition:color .2s}
-.nav-arrow{flex:0 0 14px;width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s}
-.nav-link:hover .nav-arrow,.nav-link:focus-visible .nav-arrow,.nav-link[aria-current=page] .nav-arrow{opacity:1;transform:none}
+.nav-link{display:flex;align-items:center;min-height:42px;font-size:15px;padding:8px 0;color:var(--muted);transition:color .2s}
 .nav-link:hover,.nav-link[aria-current=page]{color:var(--ink)}
-.nav-link[aria-current=page]{font-weight:600}
+.nav-link[aria-current=page]{font-size:16px;font-weight:600}
 .sidebar-footer{padding-top:42px}
-.socials{display:flex;flex-direction:column;align-items:flex-start;gap:1px;margin-bottom:20px}
-.socials a{display:inline-flex;align-items:center;gap:10px;min-height:30px;font-size:14px;color:var(--muted);transition:color .2s}
-.socials a:hover,.socials a:focus-visible{color:var(--ink)}
-.socials svg{flex:0 0 14px;width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
-.socials a:hover svg,.socials a:focus-visible svg{transform:translate(2px,-2px)}
+.socials{display:flex;align-items:center;justify-content:space-between;gap:4px;max-width:180px;margin:0 -6px 20px}
+.socials a{display:grid;place-items:center;flex:0 0 28px;width:28px;height:36px;color:var(--ink);opacity:.75;transition:opacity .2s}
+.socials a:hover,.socials a:focus-visible{opacity:1}
+.socials svg{width:17px;height:17px;fill:currentColor}
+.socials svg[fill=none]{fill:none}
 .sidebar-footer p{color:var(--muted);font-size:11px;margin:0}
 main {
   margin-left: var(--sidebar);
@@ -128,10 +126,11 @@ main {
   .navigation { display: block; margin-top: 14px; border-top: 1px solid var(--line); padding: 10px 0; }
   .enhanced .navigation { display: none; }
   .sidebar[data-menu-open=true] .navigation { display: block; }
-  .nav-link { font-size: 14px; min-height: 44px; padding: 11px 0; }
+  .nav-link { min-height: 46px; padding: 11px 0; }
   .sidebar-footer { display: block; padding: 16px 24px max(20px, env(safe-area-inset-bottom)); margin-top: auto; position: static; border-top: 1px solid var(--line); }
-  .socials { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px 24px; margin:0; }
-  .socials a { min-height:40px; }
+  .socials { justify-content:flex-start; max-width:none; gap:8px; margin:0 -8px; }
+  .socials a { flex-basis:44px; width:44px; height:44px; }
+  .socials svg { width:15px; height:15px; }
   .sidebar-footer>p { display: none; }
   main { flex: 1; margin: 0; padding: 18px 24px 35px; }
   .home-intro, #portfolio, .experience-page { margin: 25px 0 40px; }
@@ -176,7 +175,6 @@ main {
   .nav-link { min-height:34px; padding:6px 0; }
   .sidebar-footer { padding-top:16px; }
   .socials { margin-bottom:12px; }
-  .socials a { min-height:26px; }
   .theme-controls { margin-top:8px; }
 }
 /* Reveal the next theme over the previous one, starting at the selected icon. */
