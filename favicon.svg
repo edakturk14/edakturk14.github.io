@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Eda Akturk">
   <defs>
-    <radialGradient id="navy" cx="34%" cy="28%" r="76%">
-      <stop offset="0" stop-color="#a5b2c0"/>
-      <stop offset=".32" stop-color="#637b96"/>
-      <stop offset=".64" stop-color="#304b6b"/>
-      <stop offset="1" stop-color="#14283f"/>
+    <radialGradient id="blue" cx="34%" cy="28%" r="76%">
+      <stop offset="0" stop-color="#bfdcfa"/>
+      <stop offset=".32" stop-color="#76ade5"/>
+      <stop offset=".64" stop-color="#387fc7"/>
+      <stop offset="1" stop-color="#21549b"/>
     </radialGradient>
   </defs>
-  <circle cx="32" cy="32" r="30" fill="url(#navy)"/>
+  <circle cx="32" cy="32" r="30" fill="url(#blue)"/>
 </svg>
