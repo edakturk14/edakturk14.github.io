@@ -159,4 +159,39 @@ main {
   .gallery:not([data-section=events]) .card-meta { font-size: 11px; }
   .gallery:not([data-section=events]) .external-link { font-size: 12px; }
 }
+.work-with-me {
+  color-scheme: dark;
+  margin: 0 0 30px 30px;
+  padding: clamp(28px, 4vw, 60px);
+  max-width: 1200px;
+  background: #202321;
+  color: #f5f3ef;
+  scroll-margin-top: 28px;
+}
+.work-with-me h2 { margin: 0 0 20px; font: 400 clamp(36px, 4vw, 52px)/1.15 Georgia, 'Times New Roman', serif; letter-spacing: -.03em; }
+.services-intro { max-width: 760px; margin: 0 0 36px; color: #d0d1cb; font-size: 16px; line-height: 1.75; }
+.services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.service-card { min-width: 0; padding: 26px; border: 1px solid #515650; }
+.service-card h3 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 16px; font: 400 14px/1.5 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.service-diamond { flex: 0 0 auto; color: #d8b1be; font-size: 18px; line-height: 1; }
+.service-card p { margin: 0; color: #d0d1cb; font-size: 16px; line-height: 1.65; }
+.services-proof { max-width: 850px; margin: 26px 0 0; color: #b6bcb5; font-size: 13px; line-height: 1.8; }
+.services-contact { margin-top: 34px; }
+.services-cta { display: inline-flex; justify-content: center; align-items: center; gap: 24px; min-height: 48px; padding: 12px 22px; border: 1px solid #d8b1be; background: #e5c4cf; color: #202321; font-size: 16px; transition: background-color .2s; }
+.services-cta:hover { background: #f3dce4; }
+.services-cta:focus-visible { outline: 2px solid #f3dce4; outline-offset: 5px; }
+.services-contact p { margin: 14px 0 0; color: #b6bcb5; font-size: 13px; line-height: 1.7; }
+@media(max-width:1100px) {
+  .work-with-me { margin-left: 12px; padding: 32px; }
+  .service-card { padding: 22px; }
+}
+@media(min-width:701px) and (max-width:900px) {
+  .services-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media(max-width:700px) {
+  .work-with-me { margin: 0 -24px -35px; padding: 36px 24px 44px; scroll-margin-top: 0; }
+  .services-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .services-intro { margin-bottom: 28px; }
+  .service-card { padding: 24px; }
+}
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition: none !important; scroll-behavior: auto !important; } }
