@@ -45,6 +45,13 @@ for (const page of pages) {
   await mkdir(directory, {recursive:true});
   await writeFile(new URL('index.html', directory), html);
 }
+// Keep old Events URLs useful on both static hosting and GitHub Pages.
+await mkdir(new URL('events/', root), {recursive:true});
+await writeFile(new URL('events/index.html', root), `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks &amp; workshops — Eda Akturk</title><meta name="robots" content="noindex">
+<link rel="canonical" href="${origin}/work/"><meta http-equiv="refresh" content="0;url=/work/#work-talks">
+</head><body><p>Talks and workshops are now part of <a href="/work/#work-talks">Selected Work</a>.</p></body></html>\n`);
 await writeFile(new URL('sitemap.xml', root), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${origin}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`);
 await writeFile(new URL('robots.txt', root), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Built ${pages.length} static pages in ${fileURLToPath(root)}`);

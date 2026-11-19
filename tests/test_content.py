@@ -62,7 +62,7 @@ def webp_dimensions(path):
 class ContentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.pages = {name: Page((ROOT / name / "index.html").read_text()) for name in ("work", "writing", "events")}
+        cls.pages = {name: Page((ROOT / name / "index.html").read_text()) for name in ("work", "writing")}
         data = subprocess.check_output(["node", "--input-type=module", "-e", "import {items} from './content/gallery.mjs'; console.log(JSON.stringify(items))"], cwd=ROOT, text=True)
         cls.items = json.loads(data)
 
@@ -103,8 +103,7 @@ class ContentTests(unittest.TestCase):
                 self.assertEqual(a["loading"], "eager" if index < 3 else "lazy")
                 self.assertTrue(a["alt"])
                 self.assertIn("100vw", a["sizes"])
-                # Events remain two columns even on small phones.
-                self.assertEqual("max-width: 480px" in a["sizes"], section != "events")
+                self.assertIn("max-width: 480px", a["sizes"])
                 default = ROOT / a["src"].lstrip("/")
                 self.assertEqual(default.suffix, ".webp")
                 self.assertEqual(webp_dimensions(default), (int(a["width"]), int(a["height"])))

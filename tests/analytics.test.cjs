@@ -42,7 +42,7 @@ test('tracking follows a future canonical domain change', () => {
 });
 
 test('every generated page includes the analytics loader', () => {
-  for (const page of ['index.html', 'experience/index.html', 'work/index.html', 'writing/index.html', 'events/index.html']) {
+  for (const page of ['index.html', 'experience/index.html', 'work/index.html', 'writing/index.html', 'work-with-me/index.html']) {
     assert.match(readFileSync(require('node:path').join(__dirname, '..', page), 'utf8'), /<script src="\/analytics\.js" defer><\/script>/);
   }
 });
