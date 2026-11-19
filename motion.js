@@ -2,10 +2,10 @@
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (preference.matches || !('IntersectionObserver' in window)) return;
   const targets = [...document.querySelectorAll([
-    '.home-intro > .eyebrow', '.home-intro > h1', '.bio > p', '.about-photos',
+    '.home-intro > .eyebrow', '.home-intro > h1', '.bio > p',
     '.experience-intro', '.experience-role', '.education-section',
     '.gallery-heading:not(.sr-only)', '.work-group-title', '.card',
-    '.services-header', '.service-card', '.project-intake'
+    '.services-header', '.service-card', '.services-contact'
   ].join(','))];
   const reveal = element => {
     element.classList.add('is-revealed');
@@ -13,7 +13,7 @@
   };
   const observer = new IntersectionObserver(entries => {
     entries.filter(entry => entry.isIntersecting).forEach((entry, index) => {
-      entry.target.style.setProperty('--reveal-delay', `${Math.min(index, 3) * 65}ms`);
+      entry.target.style.setProperty('--reveal-delay', `${Math.min(index, 3) * 100}ms`);
       reveal(entry.target);
     });
   }, {threshold:0, rootMargin:'0px 0px -16px 0px'});

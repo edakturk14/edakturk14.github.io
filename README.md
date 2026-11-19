@@ -67,17 +67,13 @@ Events is removed from navigation and the sitemap. The old `/events/` URL redire
 
 ## About photos
 
-The About page includes a compact, automatically moving collage with varied image sizes, staggered positions, gentle angles, hover lift, a pause control, and touch scrolling. It respects reduced-motion preferences.
+The About page includes a compact, caption-free collage with varied image sizes, staggered positions, and a one-by-one entrance. It moves at 38 pixels per second after the entrance and pauses for hover, keyboard focus, touch, or the explicit pause control. Selecting a photo opens an animated, full-photo dialog with Previous, Next, Close, arrow-key navigation, and Escape. Focus returns to the selected original photo on close. Both motion features respect reduced-motion preferences.
 
 
-## Project enquiries
+## Contact
 
-The Work with me page includes company/contact fields, service selection, project details, optional timeline, and optional budget. `intake-form.js` sends these to FormSubmit for delivery to the existing `edakturk19@gmail.com` contact address. The form also works as a normal POST without JavaScript. The AJAX flow includes validation, a sending state, confirmed-submission feedback, and an email fallback that retains the enquiry if delivery cannot be confirmed.
-
-**Activation required:** the first real submission triggers FormSubmit's confirmation email. Eda must activate delivery from that email before enquiries are forwarded. FormSubmit retains pending submissions for 30 days. Local tests use a fake fetch function; they never send real messages or verify inbox delivery. Send one test through the deployed form and confirm the inbox link before relying on the form for enquiries. See https://formsubmit.co/help and https://formsubmit.co/documentation.
-
-No API keys, accounts, or server functions are required in the repository. A hidden honeypot is included. FormSubmit's native form flow may also use its own spam challenge. Keep the direct email option available.
+The Work with me page uses ordinary `mailto:` links to `edakturk19@gmail.com`. No intake form, form service, email activation, or visitor data collection is involved.
 
 ## Entrance motion
 
-`motion.js` reveals text, work cards, and experience sections once as they enter the viewport. Motion lasts 700 ms with a short stagger. JavaScript and IntersectionObserver are optional; content stays visible without them. Reduced-motion preferences disable the reveal animation and automatic photo movement.
+`motion.js` reveals text, work cards, and experience sections once as they enter the viewport. Sections rise into view over 850 ms with a 100 ms stagger. Work images also settle from a subtle zoom. JavaScript and IntersectionObserver are optional; content stays visible without them. Reduced-motion preferences disable the reveal animation and automatic photo movement.
