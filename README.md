@@ -71,7 +71,7 @@ Events is removed from navigation and the sitemap. The old `/events/` URL redire
 
 ## About photos
 
-The About page includes 13 distinct photos from talks, community events, Hyperlane, and The Builder Show in a compact, caption-free collage with uncropped natural image proportions, individually chosen heights, gentle angles, clear spacing, and a one-by-one entrance. It moves at 38 pixels per second after the entrance and pauses for hover, keyboard focus, touch, or the explicit pause control. Selecting a photo opens an animated, full-photo dialog with Previous, Next, Close, arrow-key navigation, and Escape. Focus returns to the selected original photo on close. Both motion features respect reduced-motion preferences.
+The About page includes 13 distinct photos from talks, community events, Hyperlane, and The Builder Show in a compact, caption-free collage with uncropped natural image proportions, individually chosen heights, varied left/right tilts, overlapping edges, and a one-by-one entrance. It moves at 38 pixels per second after the entrance and pauses for hover, keyboard focus, touch, or the explicit pause control. Selecting a photo opens an animated, full-photo dialog with Previous, Next, Close, arrow-key navigation, and Escape. Focus returns to the selected original photo on close. Both motion features respect reduced-motion preferences.
 
 
 ## Services layout

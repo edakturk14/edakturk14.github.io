@@ -201,11 +201,13 @@ main {
 }
 @media(max-width:380px) { .services-contact { align-items:flex-start; flex-direction:column; } }
 
-/* Each photo keeps its own proportions, with quiet shifts in scale and position. */
+/* Overlapping photos keep their own proportions and individual left/right tilts. */
 .about-photos { --photo-scale:1; position:relative; margin-top:26px; max-width:640px; }
-.photo-track { position:relative; display:flex; align-items:flex-start; gap:16px; overflow-x:auto; padding:18px 8px 20px; scrollbar-width:none; mask-image:linear-gradient(to right,transparent,#000 8px,#000 calc(100% - 12px),transparent); }
+.photo-track { position:relative; display:flex; align-items:flex-start; gap:0; overflow-x:auto; padding:18px 8px 20px; scrollbar-width:none; mask-image:linear-gradient(to right,transparent,#000 8px,#000 calc(100% - 12px),transparent); }
 .photo-track::-webkit-scrollbar { display:none; }
 .photo-slide { position:relative; flex:0 0 auto; width:calc(var(--photo-size) * var(--photo-ratio) * var(--photo-scale)); min-width:0; margin:calc(var(--photo-offset) * var(--photo-scale)) 0 0; transform:rotate(var(--photo-angle)); transform-origin:50% 60%; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+.photo-slide + .photo-slide { margin-left:calc(-18px * var(--photo-scale)); }
+.photo-slide:focus-within { z-index:1; }
 .photo-slide img { display:block; width:100%; height:auto; aspect-ratio:var(--photo-ratio); object-fit:contain; border-radius:4px; box-shadow:0 3px 10px #00000012,0 1px 2px #0000000d; transition:box-shadow .45s; }
 .photo-open { display:block; border-radius:4px; cursor:zoom-in; }
 @media(hover:hover) {
@@ -218,7 +220,7 @@ main {
 .photo-controls button:hover { color:var(--ink); }
 @media(max-width:700px) {
   .about-photos { --photo-scale:.82; margin-top:22px; }
-  .photo-track { gap:14px; padding-top:14px; }
+  .photo-track { padding-top:14px; }
   .photo-controls button { min-height:44px; }
 }
 
