@@ -5,7 +5,7 @@ from urllib.parse import urlsplit, unquote
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-ROUTES = ['/', '/experience/', '/work/', '/writing/', '/events/']
+ROUTES = ['/', '/experience/', '/work/', '/writing/', '/work-with-me/']
 
 
 class Page(HTMLParser):
@@ -68,7 +68,6 @@ for route, page in pages.items():
 
 assert pages['/work/'].cards == 13
 assert pages['/writing/'].cards == 9
-assert pages['/events/'].cards == 8
 assert pages['/experience/'].roles == 5
 sitemap = ET.parse(ROOT / 'sitemap.xml')
 urls = [node.text for node in sitemap.findall('.//{*}loc')]

@@ -37,14 +37,21 @@ function portfolio(section) {
 }
 
 for (const page of pages) {
-  const content = ['home', 'experience'].includes(page.id) ? await read(`content/${page.id}.html`) : portfolio(page.id);
-  const navigation = pages.map(item => `      <a class="nav-link" href="${item.path}"${item.id === page.id ? ' aria-current="page"' : ''}>${item.label}</a>`).join('\n');
+  const content = ['home', 'experience', 'work-with-me'].includes(page.id) ? await read(`content/${page.id}.html`) : portfolio(page.id);
+  const navigation = pages.map(item => `      <a class="nav-link" href="${item.path}"${item.id === page.id ? ' aria-current="page"' : ''}><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>${item.label}</span></a>`).join('\n');
   const values = {content, navigation, title:escape(page.title), description:escape(page.description), origin, canonical:`${origin}${page.path}`};
   const html = template.replace(/\{\{(\w+)\}\}/g, (_, key) => values[key]);
   const directory = new URL(`.${page.path}`, root);
   await mkdir(directory, {recursive:true});
   await writeFile(new URL('index.html', directory), html);
 }
+// Keep old Events URLs useful on both static hosting and GitHub Pages.
+await mkdir(new URL('events/', root), {recursive:true});
+await writeFile(new URL('events/index.html', root), `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks &amp; workshops — Eda Akturk</title><meta name="robots" content="noindex">
+<link rel="canonical" href="${origin}/work/"><meta http-equiv="refresh" content="0;url=/work/#work-talks">
+</head><body><p>Talks and workshops are now part of <a href="/work/#work-talks">Selected Work</a>.</p></body></html>\n`);
 await writeFile(new URL('sitemap.xml', root), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${origin}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`);
 await writeFile(new URL('robots.txt', root), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Built ${pages.length} static pages in ${fileURLToPath(root)}`);
