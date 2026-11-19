@@ -208,6 +208,7 @@ main {
 .photo-slide { position:relative; flex:0 0 var(--photo-width); min-width:0; margin:var(--photo-top) -8px 0 0; transform:rotate(var(--photo-angle)); transform-origin:50% 60%; transition:transform .5s cubic-bezier(.22,1,.36,1); }
 .photo-slide + .photo-slide { margin-left:-24px; }
 .photo-portrait { --photo-width:158px; --photo-height:186px; --photo-top:0px; --photo-angle:-3deg; }
+.photo-group { --photo-width:240px; --photo-height:135px; --photo-top:22px; --photo-angle:1.5deg; }
 .photo-wide { --photo-width:218px; --photo-height:138px; --photo-top:36px; --photo-angle:2deg; }
 .photo-small { --photo-width:172px; --photo-height:126px; --photo-top:13px; --photo-angle:-2deg; }
 .photo-conversation { --photo-width:228px; --photo-height:154px; --photo-top:29px; --photo-angle:2.5deg; }
@@ -225,6 +226,7 @@ main {
   .about-photos { margin-top:22px; }
   .photo-track { gap:16px; padding-top:14px; }
   .photo-portrait { --photo-width:132px; --photo-height:158px; }
+  .photo-group { --photo-width:192px; --photo-height:108px; --photo-top:18px; }
   .photo-wide { --photo-width:174px; --photo-height:112px; --photo-top:30px; }
   .photo-small { --photo-width:142px; --photo-height:105px; --photo-top:9px; }
   .photo-conversation { --photo-width:184px; --photo-height:124px; --photo-top:23px; }

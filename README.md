@@ -65,9 +65,13 @@ White is the default regardless of system appearance. The shared Dark mode switc
 
 Events is removed from navigation and the sitemap. The old `/events/` URL redirects to Talks & workshops in Selected Work. ETHGünü’s stage photo and recording are now a talk card there. Existing event assets and six archived event entries remain available for future reuse in `archivedEventPhotos`.
 
+## Site icon
+
+`favicon.svg` is the source for the navy gradient circle. The matching multi-size ICO and white-backed Apple touch icon are committed assets. Icon URLs in `content/layout.html` are versioned to refresh browser caches.
+
 ## About photos
 
-The About page includes a compact, caption-free collage with varied image sizes, staggered positions, and a one-by-one entrance. It moves at 38 pixels per second after the entrance and pauses for hover, keyboard focus, touch, or the explicit pause control. Selecting a photo opens an animated, full-photo dialog with Previous, Next, Close, arrow-key navigation, and Escape. Focus returns to the selected original photo on close. Both motion features respect reduced-motion preferences.
+The About page includes 13 distinct photos from talks, community events, Hyperlane, and The Builder Show in a compact, caption-free collage with varied image sizes, staggered positions, and a one-by-one entrance. It moves at 38 pixels per second after the entrance and pauses for hover, keyboard focus, touch, or the explicit pause control. Selecting a photo opens an animated, full-photo dialog with Previous, Next, Close, arrow-key navigation, and Escape. Focus returns to the selected original photo on close. Both motion features respect reduced-motion preferences.
 
 
 ## Contact
