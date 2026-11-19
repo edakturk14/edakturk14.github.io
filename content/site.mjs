@@ -5,6 +5,6 @@ export const pages = [
   {id:'experience', path:'/experience/', label:'Experience', title:'Experience — Eda Akturk', description:'From engineering and enterprise technology to developer relations, product, and partner engineering. My experience at Hyperlane, BuidlGuidl, World Bank, Cisco, and GE.'},
   {id:'work', path:'/work/', label:'Selected Work', title:'Selected Work — Eda Akturk', description:'Developer programs, videos, demos, and talks by Eda Akturk. BuidlGuidl Batches, The Builder Show, Hyperlane, and more.'},
   {id:'writing', path:'/writing/', label:'Writing', title:'Writing — Eda Akturk', description:'Technical explainers, tutorials, and writing about products, marketing, and technology by Eda Akturk.'},
-  {id:'work-with-me', path:'/work-with-me/', label:'Work with me', title:'Work with me — Eda Akturk', description:'Technical content, AEO and agent-ready documentation, positioning, DevRel strategy, talks, and content partnerships for developer tools and AI companies.'},
+  {id:'work-with-me', path:'/work-with-me/', label:'Work with me', title:'Work with me — Eda Akturk', description:'Technical content, developer onboarding, positioning, DevRel strategy, talks, and content partnerships for developer tools and AI companies.'},
   {id:'events', path:'/events/', label:'Events', title:'Events — Eda Akturk', description:'Talks, workshops, and moments with developer communities, from ETHCC to Devconnect and ETHGünü.'}
 ];

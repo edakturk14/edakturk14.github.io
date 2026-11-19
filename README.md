@@ -56,3 +56,7 @@ Update `origin` in `content/site.mjs`, then run `npm run build` to refresh canon
 ## Work with me
 
 The services live on `/work-with-me/`, separate from the About introduction. Edit `content/work-with-me.html` and rebuild. The old `/#work-with-me` link redirects to the standalone page.
+
+## Color theme
+
+White is the default regardless of system appearance. The shared Dark mode switch remembers an explicit choice in localStorage. `theme.js` restores that choice before styles load. Both themes use shared CSS variables. Services use lightweight entrance and hover motion and respect reduced-motion preferences.
