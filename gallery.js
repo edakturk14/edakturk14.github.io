@@ -29,8 +29,14 @@ if (typeof document !== 'undefined') {
   const mobileViewport = window.matchMedia('(max-width: 700px)');
   const mobileMenu = $('.mobile-menu-toggle');
   const socialFooter = $('#site-socials');
+  const themeControls = $('.theme-controls');
 
   function placeSocialFooter() {
+    // Keep the same theme controls reachable in the mobile header.
+    if (themeControls) {
+      if (mobileViewport.matches) $('.identity-actions').insertBefore(themeControls, mobileMenu);
+      else socialFooter.append(themeControls);
+    }
     (mobileViewport.matches ? document.body : $('.sidebar')).append(socialFooter);
   }
   function setMobileMenu(open) {
