@@ -11,6 +11,7 @@
     function render() {
       const dark = root.dataset.theme === 'dark';
       button.setAttribute('aria-checked', String(dark));
+      button.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
       if (meta) meta.setAttribute('content', dark ? '#10151e' : '#ffffff');
     }
     render();
