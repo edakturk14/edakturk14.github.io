@@ -160,17 +160,15 @@ main {
   .gallery:not([data-section=events]) .external-link { font-size: 12px; }
 }
 .work-with-me {
-  margin: 0 0 30px 30px;
-  padding-top: 36px;
-  border-top: 1px solid var(--line);
+  margin: 62px 0 30px 30px;
   max-width: 820px;
   scroll-margin-top: 28px;
 }
-.work-with-me h2 { margin: 0 0 18px; font-size: 28px; font-weight: 400; line-height: 1.4; letter-spacing: -.6px; }
+.work-with-me h1 { margin: 0 0 18px; font-size: 28px; font-weight: 400; line-height: 1.4; letter-spacing: -.6px; }
 .services-intro { max-width: 640px; margin: 0 0 30px; color: var(--muted); font-size: 16px; line-height: 1.8; }
 .services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .service-card { min-width: 0; padding: 24px; border: 1px solid var(--line); }
-.service-card h3 { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; font-size: 17px; font-weight: 400; line-height: 1.5; letter-spacing: -.2px; }
+.service-card h2 { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; font-size: 17px; font-weight: 400; line-height: 1.5; letter-spacing: -.2px; }
 .service-diamond { flex: 0 0 auto; color: var(--accent-focus); font-size: 18px; line-height: 1; }
 .service-card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
 .services-proof { max-width: 700px; margin: 28px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
@@ -186,7 +184,7 @@ main {
 }
 @media(max-width:700px) {
   .work-with-me { margin: 0; padding-top: 28px; scroll-margin-top: 24px; }
-  .work-with-me h2 { font-size: 25px; }
+  .work-with-me h1 { font-size: 25px; }
   .services-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .services-intro { margin-bottom: 28px; }
   .service-card { padding: 22px; }

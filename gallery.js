@@ -2,6 +2,7 @@
 
 // Old bookmarks still open the matching page and item. New links use real HTML routes.
 function legacyDestination(hash) {
+  if (hash === '#work-with-me') return '/work-with-me/';
   let [section, id] = hash.replace(/^#/, '').split('/');
   const aliases = {talks:'work', 'other-work':'work', photos:'events', judging:'work', home:''};
   if (section === 'judging') id = 'judging';

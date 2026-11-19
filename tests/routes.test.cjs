@@ -6,7 +6,7 @@ test('existing section bookmarks move to real pages', () => {
   const routes = {
     '#home':'/', '#writing':'/writing/', '#work':'/work/', '#events':'/events/',
     '#talks':'/work/', '#other-work':'/work/', '#photos':'/events/',
-    '#judging':'/work/#card-judging', '#experience':'/experience/'
+    '#judging':'/work/#card-judging', '#experience':'/experience/', '#work-with-me':'/work-with-me/'
   };
   for (const [hash, path] of Object.entries(routes)) assert.equal(legacyDestination(hash), path);
 });

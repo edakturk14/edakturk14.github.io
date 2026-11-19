@@ -37,7 +37,7 @@ function portfolio(section) {
 }
 
 for (const page of pages) {
-  const content = ['home', 'experience'].includes(page.id) ? await read(`content/${page.id}.html`) : portfolio(page.id);
+  const content = ['home', 'experience', 'work-with-me'].includes(page.id) ? await read(`content/${page.id}.html`) : portfolio(page.id);
   const navigation = pages.map(item => `      <a class="nav-link" href="${item.path}"${item.id === page.id ? ' aria-current="page"' : ''}>${item.label}</a>`).join('\n');
   const values = {content, navigation, title:escape(page.title), description:escape(page.description), origin, canonical:`${origin}${page.path}`};
   const html = template.replace(/\{\{(\w+)\}\}/g, (_, key) => values[key]);

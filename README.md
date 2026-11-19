@@ -52,3 +52,7 @@ Vercel Web Analytics is loaded on all five pages through `analytics.js` in the s
 ## Future domain move
 
 Update `origin` in `content/site.mjs`, then run `npm run build` to refresh canonical URLs, social metadata, the sitemap, and robots.txt. Internal links and assets use host-relative paths. When the new domain is ready, configure permanent redirects on the existing host from both edatweets.com and www.edatweets.com to the new domain, preserving paths and query strings. No domain or hosting changes have been made.
+
+## Work with me
+
+The services live on `/work-with-me/`, separate from the About introduction. Edit `content/work-with-me.html` and rebuild. The old `/#work-with-me` link redirects to the standalone page.

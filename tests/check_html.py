@@ -5,7 +5,7 @@ from urllib.parse import urlsplit, unquote
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-ROUTES = ['/', '/experience/', '/work/', '/writing/', '/events/']
+ROUTES = ['/', '/experience/', '/work/', '/writing/', '/work-with-me/', '/events/']
 
 
 class Page(HTMLParser):
