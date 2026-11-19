@@ -67,4 +67,4 @@ Events is removed from navigation and the sitemap. The old `/events/` URL redire
 
 ## About photos
 
-The About page has a four-photo landscape carousel with captions, previous/next controls, and a play/pause control. It advances every six seconds while visible, pauses on hover or interaction, and starts paused for reduced-motion preferences. Without JavaScript it remains a swipeable photo strip. Images reuse the existing responsive WebP assets.
+The About page includes a compact, automatically moving photo strip with a pause control, touch scrolling, and reduced-motion support.

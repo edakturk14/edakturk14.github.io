@@ -2,65 +2,60 @@
   const carousel = document.querySelector('.about-photos');
   if (!carousel) return;
   const track = carousel.querySelector('.photo-track');
-  const slides = [...carousel.querySelectorAll('.photo-slide')];
   const controls = carousel.querySelector('.photo-controls');
   const play = carousel.querySelector('.photo-play');
-  const count = carousel.querySelector('.photo-count');
+  const slides = [...track.children];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let index = 0;
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
   let paused = reducedMotion.matches;
   let hovered = false;
   let visible = false;
-  let timer;
-  let scrollTimer;
-  function updateControls() {
-    play.dataset.paused = String(paused);
-    play.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
-    count.setAttribute('aria-live', paused ? 'polite' : 'off');
-    count.textContent = `${index + 1} / ${slides.length}`;
+  let frame;
+  let previousTime;
+  let position = 0;
+  let loopWidth;
+  function measure() {
+    loopWidth = track.children[slides.length].offsetLeft - slides[0].offsetLeft;
   }
-  function schedule() {
-    clearTimeout(timer);
+  function tick(time) {
+    if (previousTime !== undefined) {
+      position = (position + Math.min(time - previousTime, 50) * 0.022) % loopWidth;
+      track.scrollLeft = position;
+    }
+    previousTime = time;
+    frame = requestAnimationFrame(tick);
+  }
+  function update() {
+    cancelAnimationFrame(frame);
+    previousTime = undefined;
+    play.textContent = paused ? 'Play' : 'Pause';
+    play.setAttribute('aria-label', paused ? 'Play photo strip' : 'Pause photo strip');
     if (!paused && !hovered && visible && !document.hidden) {
-      timer = setTimeout(() => { show(index + 1); schedule(); }, 6000);
+      position = track.scrollLeft % loopWidth;
+      frame = requestAnimationFrame(tick);
     }
   }
-  function show(next) {
-    index = (next + slides.length) % slides.length;
-    track.scrollTo({left:index * track.clientWidth, behavior:reducedMotion.matches ? 'instant' : 'smooth'});
-    updateControls();
-  }
-  function manual(next) { paused = true; show(next); schedule(); }
-  carousel.querySelector('.photo-prev').addEventListener('click', () => manual(index - 1));
-  carousel.querySelector('.photo-next').addEventListener('click', () => manual(index + 1));
-  play.addEventListener('click', () => { paused = !paused; updateControls(); schedule(); });
-  carousel.addEventListener('mouseenter', () => { hovered = true; schedule(); });
-  carousel.addEventListener('mouseleave', () => { hovered = false; schedule(); });
-  carousel.addEventListener('focusin', event => {
-    if (event.target !== play) { paused = true; updateControls(); schedule(); }
-  });
-  track.addEventListener('pointerdown', () => { paused = true; updateControls(); schedule(); });
-  track.addEventListener('keydown', event => {
-    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-      event.preventDefault(); manual(index + (event.key === 'ArrowRight' ? 1 : -1));
-    }
-  });
-  track.addEventListener('scroll', () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      index = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
-      updateControls();
-    }, 100);
-  }, {passive:true});
-  window.addEventListener('resize', () => { track.scrollTo({left:index * track.clientWidth, behavior:'instant'}); });
-  document.addEventListener('visibilitychange', schedule);
+  play.addEventListener('click', () => { paused = !paused; update(); });
+  track.addEventListener('mouseenter', () => { hovered = true; update(); });
+  track.addEventListener('mouseleave', () => { hovered = false; update(); });
+  track.addEventListener('pointerdown', () => { paused = true; update(); });
+  track.addEventListener('focus', () => { paused = true; update(); });
+  window.addEventListener('resize', () => { measure(); update(); });
+  document.addEventListener('visibilitychange', update);
   reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches) { paused = true; updateControls(); schedule(); }
+    if (reducedMotion.matches) { paused = true; update(); }
   });
+  measure();
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, {threshold:0.35}).observe(carousel);
+    new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      update();
+    }, {threshold:0.1}).observe(carousel);
   } else { visible = true; }
   controls.hidden = false;
-  updateControls();
-  schedule();
+  update();
 })();
