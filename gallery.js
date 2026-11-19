@@ -46,6 +46,7 @@ if (typeof document !== 'undefined') {
     mobileMenu.querySelector('path').setAttribute('d', open ? 'm5 5 10 10M5 15 15 5' : 'M3 7h14M3 13h14');
   }
   mobileMenu.addEventListener('click', () => setMobileMenu(mobileMenu.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('site:navigate', () => setMobileMenu(false));
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && mobileViewport.matches && mobileMenu.getAttribute('aria-expanded') === 'true') {
       setMobileMenu(false);

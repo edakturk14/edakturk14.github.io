@@ -14,7 +14,8 @@ Run `npm run dev`, then open http://localhost:3000. Requires Node.js and Python 
 - `content/layout.html`: shared sidebar, navigation, social links, and metadata template.
 - `content/site.mjs`: page metadata and the single production origin.
 - `styles.css`: shared styling and responsive layouts.
-- `gallery.js`: mobile navigation, event masonry, and compatibility for old hash links.
+- `gallery.js`: mobile navigation and compatibility for old hash links.
+- `navigation.js`: page changes without reloading the sidebar, with cached HTML, metadata updates, and browser history/scroll restoration.
 - `scripts/thumbnails.mjs`: responsive image discovery, encoded dimensions, and display sizes matching the gallery layout.
 
 ## Gallery thumbnails
@@ -37,7 +38,7 @@ After editing content, run `npm run build`. The dependency-free generator writes
 
 `vercel.json` explicitly selects the static "Other" framework, runs the generator, and serves its output from the repository root. This avoids relying on Vercel’s framework/output-directory detection after adding the build script.
 
-All new routes contain their content in HTML and work without JavaScript. Internal navigation and proof links are ordinary links. Existing `#writing`, `#work`, `#events`, `#talks`, `#other-work`, `#photos`, `#judging`, and `#section/item` bookmarks redirect to the matching page when JavaScript is available. Asset URLs and external destinations are preserved.
+All routes contain their content in HTML and work without JavaScript. With JavaScript, ordinary internal clicks fetch the destination HTML and replace only `#main`, keeping the sidebar and theme controls mounted. Hover/focus prefetch warms the page cache. Back/Forward restores the saved scroll position, cross-page anchors still work, and modified clicks, downloads, and external links retain native browser behavior. A failed request falls back to a normal page load. Existing `#writing`, `#work`, `#events`, `#talks`, `#other-work`, `#photos`, `#judging`, and `#section/item` bookmarks redirect to the matching page. Asset URLs and external destinations are preserved.
 
 ## Verification
 
@@ -84,4 +85,4 @@ The Work with me page uses ordinary `mailto:` links to `edakturk19@gmail.com`. N
 
 ## Entrance motion
 
-`motion.js` reveals text, work cards, and experience sections once as they enter the viewport. Sections rise into view over 850 ms with a 100 ms stagger. Work images also settle from a subtle zoom. JavaScript and IntersectionObserver are optional; content stays visible without them. Reduced-motion preferences disable the reveal animation and automatic photo movement.
+`motion.js` reveals text, work cards, and experience sections once as they enter the viewport. Sections rise into view over 850 ms with a 100 ms stagger. Internal page changes use a shorter 200 ms entrance for the visible content; history restoration skips that entrance. Work images also settle from a subtle zoom. Carousel and motion listeners, observers, timers, and animation frames are cleaned up before replacing content and reconnected afterward. JavaScript and IntersectionObserver are optional; content stays visible without them. Reduced-motion preferences disable the reveal animation and automatic photo movement.

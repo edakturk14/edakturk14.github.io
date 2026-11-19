@@ -14,9 +14,10 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent-focus);outli
 .name-dot{color:var(--accent)}
 .mobile-menu-toggle{display:none}
 .navigation{margin-top:76px;flex:1}
-.nav-link{display:flex;align-items:center;min-height:42px;font-size:15px;padding:8px 0;color:var(--muted);transition:color .2s}
+.nav-link{display:flex;align-items:center;min-height:36px;font-size:14px;padding:6px 0;color:var(--muted);transition:color .25s}
+.nav-link span{display:inline-block;transition:transform .3s cubic-bezier(.22,1,.36,1)}
 .nav-link:hover,.nav-link[aria-current=page]{color:var(--ink)}
-.nav-link[aria-current=page]{font-size:16px;font-weight:600}
+.nav-link[aria-current=page] span{transform:translateX(12px)}
 .sidebar-footer{padding-top:42px}
 .socials{display:flex;align-items:center;justify-content:space-between;gap:4px;max-width:180px;margin:0 -6px 20px}
 .socials a{display:grid;place-items:center;flex:0 0 28px;width:28px;height:36px;color:var(--ink);opacity:.75;transition:opacity .2s}

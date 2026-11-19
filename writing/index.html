@@ -15,17 +15,19 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@edatweets_" />
   <script src="/theme.js?v=20261119-sidebar-reveal-1"></script>
-  <link rel="stylesheet" href="/styles.css?v=20261119-sidebar-icons-2" />
+  <link rel="stylesheet" href="/styles.css?v=20261119-soft-navigation-1" />
   <link rel="icon" href="/favicon.ico?v=blue-orb-1" sizes="16x16 32x32 48x48 64x64" />
   <link rel="icon" href="/favicon.svg?v=blue-orb-1" type="image/svg+xml" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=blue-orb-1" sizes="180x180" />
-  <script src="/gallery.js?v=20261119-sidebar-reveal-1" defer></script>
-  <script src="/photo-carousel.js?v=20261119-4" defer></script>
-  <script src="/motion.js?v=20261119-2" defer></script>
+  <script src="/gallery.js?v=20261119-soft-navigation-1" defer></script>
+  <script src="/navigation.js?v=20261119-soft-navigation-1" defer></script>
+  <script src="/photo-carousel.js?v=20261119-soft-navigation-1" defer></script>
+  <script src="/motion.js?v=20261119-soft-navigation-1" defer></script>
   <script src="/analytics.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <p id="page-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
   <aside class="sidebar" aria-label="About Eda and navigation">
     <header class="identity">
       <a class="name" href="/">Eda Akturk<span class="name-dot">.</span></a>
@@ -34,11 +36,11 @@
       </div>
     </header>
     <nav aria-label="Main navigation" class="navigation" id="site-navigation">
-      <a class="nav-link" href="/">About</a>
-      <a class="nav-link" href="/experience/">Experience</a>
-      <a class="nav-link" href="/work/">Selected Work</a>
-      <a class="nav-link" href="/writing/" aria-current="page">Writing</a>
-      <a class="nav-link" href="/work-with-me/">Work with me</a>
+      <a class="nav-link" href="/"><span>About</span></a>
+      <a class="nav-link" href="/experience/"><span>Experience</span></a>
+      <a class="nav-link" href="/work/"><span>Selected Work</span></a>
+      <a class="nav-link" href="/writing/" aria-current="page"><span>Writing</span></a>
+      <a class="nav-link" href="/work-with-me/"><span>Work with me</span></a>
     </nav>
     <footer class="sidebar-footer" id="site-socials">
       <div class="socials">
