@@ -10,7 +10,7 @@ Run `npm run dev`, then open http://localhost:3000. Requires Node.js and Python 
 
 - `content/home.html`: homepage copy and positioning.
 - `content/experience.html`: career entries and proof links.
-- `content/gallery.mjs`: 23 active portfolio entries and seven archived event photos, links, and work groups.
+- `content/gallery.mjs`: 22 active portfolio entries, six archived event photos, and two archived demos, links, and work groups.
 - `content/layout.html`: shared sidebar, navigation, social links, and metadata template.
 - `content/site.mjs`: page metadata and the single production origin.
 - `styles.css`: shared styling and responsive layouts.
@@ -41,7 +41,7 @@ All new routes contain their content in HTML and work without JavaScript. Intern
 
 ## Verification
 
-Run `npm run build` and `npm test`. Checks cover legacy routes, direct proof anchors, local assets, navigation, all 23 portfolio cards, the five experience entries, headings, canonical URLs, and the sitemap. Browser-based visual and mobile interaction review is still needed; computer-use permission was unavailable in this session.
+Run `npm run build` and `npm test`. Checks cover legacy routes, direct proof anchors, local assets, navigation, all 22 portfolio cards, the five experience entries, headings, canonical URLs, and the sitemap. Browser-based visual and mobile interaction review is still needed; computer-use permission was unavailable in this session.
 
 Dates and Koç University education come from the CV screenshots Eda supplied on November 6, 2026. Hyperlane is current (Sep 2024–Present). Cisco is combined as Aug 2019–Jan 2022, covering the CSAP and subsequent technical sales roles. GE Healthcare was her first paid software developer role on the service team. No education dates were supplied, so none are shown. Experience links to organization websites. The Hyperlane entry weaves Eda’s six supplied proof links into its ownership bullets; the separate rows of proof links remain removed. The launch names, Composable interview title, and community-built Hyperlane MCP announcement were checked against public X post metadata; ownership descriptions come from Eda.
 
@@ -63,4 +63,8 @@ White is the default regardless of system appearance. The shared Dark mode switc
 
 ## Events page retirement
 
-Events is removed from navigation and the sitemap. The old `/events/` URL redirects to Talks & workshops in Selected Work. ETHGünü’s stage photo and recording are now a talk card there. Existing event assets and seven archived entries remain available for future reuse in `archivedEventPhotos`.
+Events is removed from navigation and the sitemap. The old `/events/` URL redirects to Talks & workshops in Selected Work. ETHGünü’s stage photo and recording are now a talk card there. Existing event assets and six archived event entries remain available for future reuse in `archivedEventPhotos`.
+
+## About photos
+
+The About page has a four-photo landscape carousel with captions, previous/next controls, and a play/pause control. It advances every six seconds while visible, pauses on hover or interaction, and starts paused for reduced-motion preferences. Without JavaScript it remains a swipeable photo strip. Images reuse the existing responsive WebP assets.

@@ -26,7 +26,7 @@ test('native anchors, skip links, and ordinary page loads are not redirected', (
 
 test('retired event bookmarks reach surviving work entries', () => {
   assert.equal(legacyDestination('#events/ethgunu-stage'), '/work/#card-ethgunu-stage');
-  assert.equal(legacyDestination('#photos/fireside'), '/work/#card-ethgunu');
+  assert.equal(legacyDestination('#photos/fireside'), '/work/#card-fireside');
   assert.equal(legacyDestination('#events/brussels'), '/work/#work-talks');
   assert.equal(legacyDestination('#events/unknown'), '/work/#work-talks');
 });

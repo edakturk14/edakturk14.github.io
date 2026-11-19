@@ -5,7 +5,7 @@ function legacyDestination(hash) {
   if (hash === '#work-with-me') return '/work-with-me/';
   let [section, id] = hash.replace(/^#/, '').split('/');
   if (section === 'events' || section === 'photos') {
-    const targets = {'ethgunu-stage':'card-ethgunu-stage', fireside:'card-ethgunu', volunteers:'card-ethgunu', cannes:'card-ethcc-intents'};
+    const targets = {'ethgunu-stage':'card-ethgunu-stage', fireside:'card-fireside', volunteers:'card-ethgunu', cannes:'card-ethcc-intents'};
     return `/work/#${targets[id] || 'work-talks'}`;
   }
   const aliases = {talks:'work', 'other-work':'work', judging:'work', home:''};

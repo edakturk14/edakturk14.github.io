@@ -209,3 +209,24 @@ main {
   .service-card p { font-size:14px; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition: none !important; scroll-behavior: auto !important; } }
+
+/* A single landscape photo strip, using the About page's text width. */
+.about-photos { position:relative; margin-top:34px; max-width:640px; }
+.photo-track { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; border-radius:8px; }
+.photo-track::-webkit-scrollbar { display:none; }
+.photo-slide { flex:0 0 100%; min-width:0; margin:0; scroll-snap-align:start; scroll-snap-stop:always; }
+.photo-slide img { display:block; width:100%; height:auto; aspect-ratio:16 / 9; object-fit:cover; border-radius:8px; }
+.photo-slide figcaption { padding:12px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+.photo-controls { display:flex; align-items:center; justify-content:flex-end; gap:2px; margin-top:4px; }
+.photo-controls[hidden] { display:none; }
+.photo-count { color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; margin-right:10px; }
+.photo-controls button { display:grid; place-items:center; width:36px; height:36px; padding:8px; border:0; border-radius:50%; background:transparent; color:var(--muted); cursor:pointer; }
+.photo-controls button:hover { color:var(--ink); background:var(--accent-soft); }
+.photo-controls svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+.photo-play-icon { display:none; }
+.photo-play[data-paused="true"] .photo-play-icon { display:block; }
+.photo-play[data-paused="true"] .photo-pause-icon { display:none; }
+@media(max-width:700px) {
+  .about-photos { margin-top:28px; }
+  .photo-controls button { width:44px; height:44px; }
+}

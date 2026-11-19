@@ -66,7 +66,7 @@ for route, page in pages.items():
             file = ROOT / target_route.lstrip('/')
             assert file.is_file(), f'Missing asset: {route} → {link}'
 
-assert pages['/work/'].cards == 14
+assert pages['/work/'].cards == 13
 assert pages['/writing/'].cards == 9
 assert pages['/experience/'].roles == 5
 sitemap = ET.parse(ROOT / 'sitemap.xml')
