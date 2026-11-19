@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@edatweets_" />
   <script src="/theme.js?v=20261119-sidebar-reveal-1"></script>
-  <link rel="stylesheet" href="/styles.css?v=20261119-soft-navigation-1" />
+  <link rel="stylesheet" href="/styles.css?v=20261119-sidebar-details-1" />
   <link rel="icon" href="/favicon.ico?v=blue-orb-1" sizes="16x16 32x32 48x48 64x64" />
   <link rel="icon" href="/favicon.svg?v=blue-orb-1" type="image/svg+xml" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=blue-orb-1" sizes="180x180" />
@@ -30,17 +30,20 @@
   <p id="page-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
   <aside class="sidebar" aria-label="About Eda and navigation">
     <header class="identity">
-      <a class="name" href="/">Eda Akturk<span class="name-dot">.</span></a>
+      <div class="identity-details">
+        <a class="name" href="/">Eda Akturk<span class="name-dot">.</span></a>
+        <p class="identity-location">Brooklyn, New York</p>
+      </div>
       <div class="identity-actions">
         <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open menu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h14M3 13h14"/></svg></button>
       </div>
     </header>
     <nav aria-label="Main navigation" class="navigation" id="site-navigation">
-      <a class="nav-link" href="/"><span>About</span></a>
-      <a class="nav-link" href="/experience/"><span>Experience</span></a>
-      <a class="nav-link" href="/work/" aria-current="page"><span>Selected Work</span></a>
-      <a class="nav-link" href="/writing/"><span>Writing</span></a>
-      <a class="nav-link" href="/work-with-me/"><span>Work with me</span></a>
+      <a class="nav-link" href="/"><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>About</span></a>
+      <a class="nav-link" href="/experience/"><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>Experience</span></a>
+      <a class="nav-link" href="/work/" aria-current="page"><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>Selected Work</span></a>
+      <a class="nav-link" href="/writing/"><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>Writing</span></a>
+      <a class="nav-link" href="/work-with-me/"><svg class="nav-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg><span>Work with me</span></a>
     </nav>
     <footer class="sidebar-footer" id="site-socials">
       <div class="socials">
@@ -50,12 +53,10 @@
         <a href="https://edatweets.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Eda’s Substack" title="Substack"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2h18v2H3V2Zm0 4h18v2H3V6Zm0 4h18v13l-9-5-9 5V10Z"/></svg></a>
         <a href="mailto:edakturk19@gmail.com" aria-label="Email Eda" title="Get in touch"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="2.5" y="4.5" width="19" height="15" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="m3 6 9 7 9-7" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </div>
-      <p>Brooklyn, New York</p>
       <div class="theme-controls" role="group" aria-label="Color theme" hidden>
         <button class="theme-option" type="button" data-set-theme="light" aria-pressed="true" aria-label="Light mode" title="Light mode">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
         </button>
-        <span class="theme-separator" aria-hidden="true">/</span>
         <button class="theme-option" type="button" data-set-theme="dark" aria-pressed="false" aria-label="Dark mode" title="Dark mode">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13a8.5 8.5 0 0 1-9.5-9.5A8.5 8.5 0 1 0 20.5 13Z"/></svg>
         </button>
