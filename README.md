@@ -41,7 +41,7 @@ All new routes contain their content in HTML and work without JavaScript. Intern
 
 ## Verification
 
-Run `npm run build` and `npm test`. Checks cover legacy routes, direct proof anchors, local assets, navigation, all 22 portfolio cards, the five experience entries, headings, canonical URLs, and the sitemap. Browser-based visual and mobile interaction review is still needed; computer-use permission was unavailable in this session.
+Run `npm run build` and `npm test`. Checks cover legacy routes, direct proof anchors, local assets, navigation, all 22 portfolio cards, the five experience entries, headings, canonical URLs, and the sitemap. Browser review covers the desktop and mobile layouts, with both light and dark themes.
 
 Dates and Koç University education come from the CV screenshots Eda supplied on November 6, 2026. Hyperlane is current (Sep 2024–Present). Cisco is combined as Aug 2019–Jan 2022, covering the CSAP and subsequent technical sales roles. GE Healthcare was her first paid software developer role on the service team. No education dates were supplied, so none are shown. Experience links to organization websites. The Hyperlane entry weaves Eda’s six supplied proof links into its ownership bullets; the separate rows of proof links remain removed. The launch names, Composable interview title, and community-built Hyperlane MCP announcement were checked against public X post metadata; ownership descriptions come from Eda.
 
@@ -67,4 +67,17 @@ Events is removed from navigation and the sitemap. The old `/events/` URL redire
 
 ## About photos
 
-The About page includes a compact, automatically moving photo strip with a pause control, touch scrolling, and reduced-motion support.
+The About page includes a compact, automatically moving collage with varied image sizes, staggered positions, gentle angles, hover lift, a pause control, and touch scrolling. It respects reduced-motion preferences.
+
+
+## Project enquiries
+
+The Work with me page includes company/contact fields, service selection, project details, optional timeline, and optional budget. `intake-form.js` sends these to FormSubmit for delivery to the existing `edakturk19@gmail.com` contact address. The form also works as a normal POST without JavaScript. The AJAX flow includes validation, a sending state, confirmed-submission feedback, and an email fallback that retains the enquiry if delivery cannot be confirmed.
+
+**Activation required:** the first real submission triggers FormSubmit's confirmation email. Eda must activate delivery from that email before enquiries are forwarded. FormSubmit retains pending submissions for 30 days. Local tests use a fake fetch function; they never send real messages or verify inbox delivery. Send one test through the deployed form and confirm the inbox link before relying on the form for enquiries. See https://formsubmit.co/help and https://formsubmit.co/documentation.
+
+No API keys, accounts, or server functions are required in the repository. A hidden honeypot is included. FormSubmit's native form flow may also use its own spam challenge. Keep the direct email option available.
+
+## Entrance motion
+
+`motion.js` reveals text, work cards, and experience sections once as they enter the viewport. Motion lasts 700 ms with a short stagger. JavaScript and IntersectionObserver are optional; content stays visible without them. Reduced-motion preferences disable the reveal animation and automatic photo movement.

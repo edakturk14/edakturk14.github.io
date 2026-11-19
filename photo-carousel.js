@@ -6,11 +6,14 @@
   const play = carousel.querySelector('.photo-play');
   const slides = [...track.children];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  slides.forEach(slide => {
-    const clone = slide.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
-  });
+  // Two copies keep the loop seamless even when the viewport is wider than one set.
+  for (let copy = 0; copy < 2; copy += 1) {
+    slides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
   let paused = reducedMotion.matches;
   let hovered = false;
   let visible = false;

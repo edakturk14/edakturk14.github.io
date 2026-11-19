@@ -1,14 +1,17 @@
     <section class="work-with-me" id="work-with-me" aria-labelledby="work-with-me-title">
-      <h1 id="work-with-me-title">Work with me</h1>
-      <p class="services-intro">I help developer tools and AI companies get developers to understand, try, and stick with their product.</p>
-      <div class="services-grid">
+      <header class="services-header">
+        <h1 id="work-with-me-title">Work with me</h1>
+        <p class="services-intro">I help developer tools and AI companies get developers to understand, try, and stick with their product.</p>
+        <a class="project-jump" href="#project-enquiry">Let's work together</a>
+      </header>
+      <div class="services-grid" aria-label="Ways we can work together">
         <article class="service-card">
           <h2>Technical content</h2>
           <p>Tutorials, guides, and blog posts. Content that gets developers to their first "it works" moment faster.</p>
         </article>
         <article class="service-card">
           <h2>Onboarding Flow Design</h2>
-          <p>Auditing and redesigning the developer journey from signup to first successful integration, removing unnecessary friction along the way.</p>
+          <p>Reviewing the path from signup to a working integration, and making each step easier for developers to follow.</p>
         </article>
         <article class="service-card">
           <h2>Devtools positioning</h2>
@@ -27,7 +30,54 @@
           <p>Sponsored deep dives and product walkthroughs shared through my newsletter and X, showing developers what your product does and how to use it.</p>
         </article>
       </div>
-      <div class="services-contact">
-        <a class="services-cta" href="mailto:edakturk19@gmail.com">Let's work together</a>
-      </div>
+      <section class="project-intake" id="project-enquiry" aria-labelledby="enquiry-title">
+        <header class="intake-header">
+          <h2 id="enquiry-title">Let's work together</h2>
+          <p>Share a little about your company and what you have in mind.</p>
+        </header>
+        <form id="project-form" action="https://formsubmit.co/edakturk19@gmail.com" method="POST" aria-describedby="form-note">
+          <input type="hidden" name="_subject" value="New project enquiry from edatweets.com" />
+          <input type="hidden" name="_template" value="table" />
+          <div class="form-honeypot" aria-hidden="true"><label for="form-extra">Leave this field blank</label><input id="form-extra" name="_honey" type="text" tabindex="-1" autocomplete="off" /></div>
+          <fieldset class="intake-fields">
+            <legend class="sr-only">Project enquiry</legend>
+            <p class="form-note" id="form-note">All fields required unless marked optional.</p>
+            <div class="form-row">
+              <div class="form-field"><label for="contact-name">Your name</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required /></div>
+              <div class="form-field"><label for="contact-email">Work email</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required /></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label for="contact-company">Company / project</label><input id="contact-company" name="company" type="text" autocomplete="organization" maxlength="150" required /></div>
+              <div class="form-field"><label for="contact-website">Website <span>(optional)</span></label><input id="contact-website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="500" /></div>
+            </div>
+            <fieldset class="service-choices">
+              <legend>What would you like help with? <span>(optional)</span></legend>
+              <div class="choice-grid">
+                <label><input name="services" type="checkbox" value="Technical content" />Technical content</label>
+                <label><input name="services" type="checkbox" value="Onboarding flow design" />Onboarding flow design</label>
+                <label><input name="services" type="checkbox" value="Devtools positioning" />Devtools positioning</label>
+                <label><input name="services" type="checkbox" value="DevRel & growth strategy" />DevRel &amp; growth strategy</label>
+                <label><input name="services" type="checkbox" value="Talks & workshops" />Talks &amp; workshops</label>
+                <label><input name="services" type="checkbox" value="Content partnerships" />Content partnerships</label>
+              </div>
+            </fieldset>
+            <div class="form-field project-details">
+              <label for="contact-details">Tell me about the project</label>
+              <p class="field-hint" id="details-hint">Your product, the challenge, and what you'd like to achieve.</p>
+              <textarea id="contact-details" name="message" rows="3" minlength="10" maxlength="5000" aria-describedby="details-hint" required></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label for="contact-timeline">Timeline <span>(optional)</span></label><input id="contact-timeline" name="timeline" type="text" placeholder="When would you like to start?" maxlength="200" /></div>
+              <div class="form-field"><label for="contact-budget">Budget <span>(optional)</span></label><input id="contact-budget" name="budget" type="text" placeholder="A range, or still figuring it out" maxlength="200" /></div>
+            </div>
+            <div class="form-actions">
+              <button class="enquiry-submit" type="submit">Send enquiry</button>
+              <a href="mailto:edakturk19@gmail.com">Prefer email?</a>
+            </div>
+            <p class="form-privacy">I'll use these details to reply about your project. Delivered via <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>.</p>
+          </fieldset>
+          <p class="form-status" id="form-status" role="status" tabindex="-1" hidden></p>
+          <div class="form-recovery" hidden><p>Your details are still here. You can try again or <a href="mailto:edakturk19@gmail.com" class="enquiry-email-fallback">send them by email</a>.</p></div>
+        </form>
+      </section>
     </section>
