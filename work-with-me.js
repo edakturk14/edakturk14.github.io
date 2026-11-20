@@ -7,7 +7,6 @@
     const {signal} = events;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const section = page.querySelector('.testimonials');
-    section.classList.add('is-interactive');
     const rows = [...section.querySelectorAll('.testimonial-row')];
     let touched = false;
     let hovered = false;
