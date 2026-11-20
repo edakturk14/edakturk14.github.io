@@ -77,7 +77,11 @@ The About page includes 13 distinct photos from talks, community events, Hyperla
 
 ## Services layout
 
-Work with me uses a single list of services with titles and descriptions aligned in two columns, separated by thin rules. On mobile, each description sits beneath its title.
+Work with me keeps its original two-column service list, title sizes, descriptions, and contact links. Each row fades in with a short upward slide. Hover adds a small title enlargement without moving the description column or divider lines. Reduced-motion preferences disable these effects.
+
+`work-with-me.js` enhances one row of public quotes below the original page into a slow carousel that reverses at each end without duplicating posts. Hover or keyboard focus stops movement, resuming when the pointer or focus leaves. Touch pauses reading until a tap outside the carousel; the row can be scrolled manually. Reduced-motion preferences disable automatic movement. Animation frames, observers, and listeners are cleaned up on internal navigation.
+
+The seven quote excerpts in `content/work-with-me.html` were checked against the supplied posts through X's public oEmbed metadata and the DevNTell episode transcript. Each quote links to its original source. They are public recommendations/conversations, not claims of paid client relationships. Initials are used instead of unverified profile photos.
 
 ## Contact
 
