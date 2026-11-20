@@ -7,7 +7,7 @@
       '.home-intro > .eyebrow', '.home-intro > h1', '.bio > p',
       '.experience-intro', '.experience-role', '.education-section',
       '.gallery-heading:not(.sr-only)', '.work-group-title', '.card',
-      '.services-header', '.service-card', '.services-contact'
+      '.services-header', '.service-card', '.testimonials-header', '.services-contact'
     ].join(','))];
     const reveal = element => {
       element.classList.add('is-revealed');
