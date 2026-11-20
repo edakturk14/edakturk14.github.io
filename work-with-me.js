@@ -21,6 +21,8 @@
       row.addEventListener('keydown', event => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
           event.preventDefault();
+          // Pan the focused region, never move a focused source link offscreen.
+          if (event.target !== row) return;
           row.scrollBy({left:(event.key === 'ArrowLeft' ? -1 : 1) * 310, behavior:'instant'});
         }
       }, {signal});

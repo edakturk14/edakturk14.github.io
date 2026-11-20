@@ -93,6 +93,24 @@ test('reduced motion stops auto-scroll, including live preference changes', () =
   assert.equal(s.frames.size, 0);
 });
 
+test('arrow keys pan the focused region but never hide a focused source link', () => {
+  const s = setup({reduced:true});
+  const row = s.rows[0];
+  row.emit('keydown', {key:'ArrowRight', target:row});
+  assert.equal(row.scrollLeft, 310);
+  row.emit('keydown', {key:'ArrowLeft', target:row});
+  assert.equal(row.scrollLeft, 0);
+  const link = {};
+  let prevented = 0;
+  for (const key of ['ArrowRight', 'ArrowLeft']) {
+    row.emit('keydown', {key, target:link, preventDefault:() => prevented++});
+    assert.equal(row.scrollLeft, 0);
+  }
+  assert.equal(prevented, 2);
+  row.emit('keydown', {key:'Enter', target:link, preventDefault:() => prevented++});
+  assert.equal(prevented, 2);
+});
+
 test('soft navigation cleans up animation without duplicating quotes or accumulating listeners', () => {
   const s = setup();
   assert.equal(s.rows[0].children.length, 1);
