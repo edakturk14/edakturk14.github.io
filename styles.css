@@ -185,7 +185,7 @@ main {
 .identity-actions { display:flex; align-items:center; gap:4px; }
 .theme-controls { display:flex; align-items:center; gap:2px; width:max-content; margin:18px 0 0; padding:3px; border:1px solid transparent; border-radius:999px; background:var(--surface); box-shadow:var(--shadow-border); }
 .theme-option { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; padding:0; border:1px solid transparent; border-radius:50%; color:var(--muted); background:transparent; transition:color .2s,background-color .2s,box-shadow .2s; }
-.theme-option:focus-visible { color:var(--ink); background:var(--surface-hover); }
+.theme-option:focus-visible { position:relative; z-index:1; color:var(--ink); background:var(--surface-hover); }
 @media(hover:hover) { .theme-option:hover { color:var(--ink); background:var(--surface-hover); } }
 .theme-option[aria-pressed="true"] { color:var(--ink); background:var(--paper); box-shadow:var(--shadow-border); }
 .theme-option svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
