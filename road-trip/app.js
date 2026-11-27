@@ -2,7 +2,7 @@ const stops = {
   phoenix: {number:'01', alt:'A sage-green car on a desert road outside Phoenix at sunrise.', coordinates:'33.4484° N, 112.0740° W', state:'ARIZONA'},
   sedona: {number:'02', alt:'Two travelers seen through the windshield, driving between the red rock formations of Sedona.', coordinates:'34.8697° N, 111.7610° W', state:'ARIZONA'},
   'grand-canyon': {number:'03', alt:'Two tiny travelers at the rim of the Grand Canyon, above layered terracotta cliffs and the river far below.', coordinates:'36.0544° N, 112.1401° W', state:'ARIZONA'},
-  page: {number:'04', alt:'Two travelers walking between the flowing orange sandstone walls of Antelope Canyon.', coordinates:'36.4624° N, 111.3735° W', state:'ARIZONA'},
+  page: {number:'04', alt:'Two travelers walking between the flowing orange sandstone walls of Antelope Canyon.', coordinates:'36.8620° N, 111.3743° W', state:'ARIZONA'},
   bryce: {number:'05', alt:'A windshield view of the soft pink hoodoo spires of Bryce Canyon.', coordinates:'37.5930° N, 112.1871° W', state:'UTAH'},
   zion: {number:'06', alt:'A small sage-green car crossing Zion beneath towering sandstone cliffs beside the Virgin River.', coordinates:'37.2982° N, 113.0263° W', state:'UTAH'},
   vegas: {number:'07', alt:'A small rental car approaching the softly glowing Las Vegas skyline at night.', coordinates:'36.1716° N, 115.1391° W', state:'NEVADA'}
