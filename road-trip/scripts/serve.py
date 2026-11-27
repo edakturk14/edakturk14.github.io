@@ -15,7 +15,9 @@ class PublicFiles(SimpleHTTPRequestHandler):
         header = self.headers.get('Range', '')
         path = Path(self.translate_path(self.path))
         match = re.fullmatch(r'bytes=(\d*)-(\d*)', header)
-        if self.command != 'GET' or path.suffix.lower() != '.mp4' or not match:
+        # We don't issue a strong ETag. Ignore conditional ranges rather than
+        # risk appending a replacement film to an older partially saved one.
+        if self.command != 'GET' or path.suffix.lower() != '.mp4' or not match or self.headers.get('If-Range'):
             return super().send_head()
         try:
             stream = path.open('rb')

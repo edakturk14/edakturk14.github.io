@@ -55,6 +55,12 @@ class StaticServerTests(unittest.TestCase):
             self.assertEqual(response.status, 200)
             self.assertEqual(response.read(), self.video)
 
+    def test_conditional_range_falls_back_to_complete_video(self):
+        for validator in ['"outdated-film"', 'Wed, 01 Jan 2020 00:00:00 GMT']:
+            with self.subTest(validator=validator), urlopen(Request(self.base + '/assets/trailer.mp4', headers={'Range': 'bytes=5-', 'If-Range': validator})) as response:
+                self.assertEqual(response.status, 200)
+                self.assertEqual(response.read(), self.video)
+
     def test_private_files_and_directory_listing_not_served(self):
         for path in ['/scripts/serve.py', '/%2egit/config', '/README.md', '/assets/']:
             with self.subTest(path=path), self.assertRaises(HTTPError) as error:
